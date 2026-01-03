@@ -1,12 +1,16 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
+import CookieConsent from "../components/layout/CookieConsent.astro";
 
 interface Props {
 	title: string;
 	description?: string;
 }
 
-const { title, description = "La Chata 1821 - Templo de la cocina tradicional riojana en Logroño." } = Astro.props;
+const {
+	title,
+	description = "La Chata 1821 - Templo de la cocina tradicional riojana en Logroño.",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -18,13 +22,17 @@ const { title, description = "La Chata 1821 - Templo de la cocina tradicional ri
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		
+
 		<!-- Google Fonts -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body class="bg-background text-text min-h-screen flex flex-col">
 		<slot />
+		<CookieConsent />
 	</body>
 </html>

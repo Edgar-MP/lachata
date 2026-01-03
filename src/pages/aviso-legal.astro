@@ -1,0 +1,129 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+---
+
+<Layout title="Aviso Legal | La Chata 1821">
+	<Header />
+
+	<main class="bg-secondary pt-32">
+		<section class="editorial-container py-24">
+			<div class="max-w-4xl reveal-on-scroll">
+				<span
+					class="text-primary/40 font-sans text-xs uppercase tracking-[0.4em] mb-6 block"
+					>Transparencia</span
+				>
+				<h1
+					class="text-primary font-heading text-6xl md:text-8xl leading-none mb-12"
+				>
+					Aviso Legal
+				</h1>
+
+				<div
+					class="prose prose-stone prose-lg max-w-none text-primary/80 font-sans space-y-12"
+				>
+					<div
+						class="reveal-on-scroll"
+						style="transition-delay: 0.1s"
+					>
+						<h2 class="text-primary font-heading text-3xl mb-6">
+							1. Información General
+						</h2>
+						<p>
+							En cumplimiento con el deber de información recogido
+							en artículo 10 de la Ley 34/2002, de 11 de julio, de
+							Servicios de la Sociedad de la Información y del
+							Comercio Electrónico, a continuación se detallan los
+							datos identificativos de la entidad:
+						</p>
+						<ul class="list-none p-0 space-y-2 italic">
+							<li>
+								<strong>Titular:</strong> La Chata 1821 S.L.
+							</li>
+							<li><strong>NIF:</strong> [CIF del cliente]</li>
+							<li>
+								<strong>Domicilio:</strong> Calle Carnicerías, 3,
+								26001 Logroño, La Rioja
+							</li>
+							<li>
+								<strong>Email:</strong> hola@lachata1821.com
+							</li>
+							<li><strong>Teléfono:</strong> +34 941 25 12 96</li>
+						</ul>
+					</div>
+
+					<div
+						class="reveal-on-scroll"
+						style="transition-delay: 0.2s"
+					>
+						<h2 class="text-primary font-heading text-3xl mb-6">
+							2. Usuarios
+						</h2>
+						<p>
+							El acceso y/o uso de este portal de La Chata 1821
+							atribuye la condición de USUARIO, que acepta, desde
+							dicho acceso y/o uso, las Condiciones Generales de
+							Uso aquí reflejadas.
+						</p>
+					</div>
+
+					<div
+						class="reveal-on-scroll"
+						style="transition-delay: 0.3s"
+					>
+						<h2 class="text-primary font-heading text-3xl mb-6">
+							3. Uso del Portal
+						</h2>
+						<p>
+							www.lachata1821.com proporciona el acceso a multitud
+							de informaciones, servicios o datos en Internet
+							pertenecientes a La Chata 1821. El USUARIO asume la
+							responsabilidad del uso del portal. Dicha
+							responsabilidad se extiende al registro que fuese
+							necesario para acceder a determinados servicios o
+							contenidos.
+						</p>
+					</div>
+
+					<div
+						class="reveal-on-scroll"
+						style="transition-delay: 0.4s"
+					>
+						<h2 class="text-primary font-heading text-3xl mb-6">
+							4. Propiedad Intelectual e Industrial
+						</h2>
+						<p>
+							La Chata 1821 por sí o como cesionaria, es titular
+							de todos los derechos de propiedad intelectual e
+							industrial de su página web, así como de los
+							elementos contenidos en la misma (a título
+							enunciativo, imágenes, sonido, audio, vídeo,
+							software o textos; marcas o logotipos, combinaciones
+							de colores, estructura y diseño, selección de
+							materiales usados, programas de ordenador necesarios
+							para su funcionamiento, acceso y uso, etc.).
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+
+	<script is:inline>
+		const observerOptions = { threshold: 0.1 };
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("visible");
+				}
+			});
+		}, observerOptions);
+
+		document
+			.querySelectorAll(".reveal-on-scroll")
+			.forEach((el) => observer.observe(el));
+	</script>
+</Layout>

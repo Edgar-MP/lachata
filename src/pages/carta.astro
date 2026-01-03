@@ -1,67 +1,231 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/layout/Header.astro';
-import Footer from '../components/layout/Footer.astro';
-import Button from '../components/base/Button.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+import Button from "../components/base/Button.astro";
 
 const sections = [
-  {
-    title: "Entrantes",
-    items: [
-      { name: "Patatas con Chorizo", price: "€ -", desc: "Clásico riojano con nuestro toque." },
-      { name: "Caparrones", price: "€ -", desc: "De profundidad, como manda la tradición." },
-      { name: "Verduras de Temporada", price: "€ -", desc: "Selección del mercado diario." }
-    ]
-  },
-  {
-    title: "Carnes y Pescados",
-    items: [
-      { name: "Chuletillas de Cordero", price: "€ -", desc: "Al sarmiento (según disponibilidad)." },
-      { name: "Pescado del Mercado", price: "€ -", desc: "Fresco del día, consulte al camarero." },
-      { name: "Solomillo de Ternera", price: "€ -", desc: "Con guarnición de la casa." }
-    ]
-  },
-  {
-    title: "Postres",
-    items: [
-      { name: "Torrija Caramelizada", price: "€ -", desc: "Con helado de vainilla." },
-      { name: "Queso con Membrillo", price: "€ -", desc: "Tradición pura." }
-    ]
-  }
+	{
+		title: "Para Abrir Boca",
+		note: "La esencia de nuestra tierra en bocados pequeños.",
+		image: "https://images.unsplash.com/photo-1547928576-a4a33237bec3?q=80&w=2070&auto=format&fit=crop",
+		items: [
+			{
+				name: "Patatas con Chorizo",
+				price: "12€",
+				desc: "Elaboradas a fuego lento con pimentón de la Vera y chorizo local.",
+			},
+			{
+				name: "Caparrones de Anguiano",
+				price: "15€",
+				desc: "Legumbre de la Rioja Alta con su acompañamiento tradicional.",
+			},
+			{
+				name: "Menestra de Verduras",
+				price: "16€",
+				desc: "Joyas de la huerta riojana seleccionadas cada mañana.",
+			},
+			{
+				name: "Croquetas de la Casa",
+				price: "14€",
+				desc: "De jamón ibérico o boletus, melosas y crujientes.",
+			},
+		],
+	},
+	{
+		title: "Del Fuego y el Agua",
+		note: "Nuestra especialidad al sarmiento y productos del Cantábrico.",
+		image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?q=80&w=2070&auto=format&fit=crop",
+		items: [
+			{
+				name: "Chuletillas al Sarmiento",
+				price: "24€",
+				desc: "El aroma inconfundible de La Rioja en el plato.",
+			},
+			{
+				name: "Bacalao a la Riojana",
+				price: "22€",
+				desc: "Con pimientos rojos de nuestra propia huerta.",
+			},
+			{
+				name: "Pescado del Mercado",
+				price: "s/m",
+				desc: "Lo mejor de la lonja seleccionado diariamente.",
+			},
+			{
+				name: "Solomillo con Pimientos",
+				price: "26€",
+				desc: "Carne de primera con pimientos del cristal asados.",
+			},
+		],
+	},
+	{
+		title: "El Final Dulce",
+		note: "Postres tradicionales hechos en casa.",
+		image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=1964&auto=format&fit=crop",
+		items: [
+			{
+				name: "Torrija de La Chata",
+				price: "8€",
+				desc: "Caramelizada, con helado de leche merengada.",
+			},
+			{
+				name: "Queso con Membrillo",
+				price: "7€",
+				desc: "Selección de quesos artesanos de la zona.",
+			},
+			{
+				name: "Sorbete de Vino Rioja",
+				price: "6€",
+				desc: "Refrescante y profundamente riojano.",
+			},
+		],
+	},
 ];
 ---
 
 <Layout title="Nuestra Carta | La Chata 1821">
-  <Header />
-  <main class="pt-20">
-    <div class="bg-stone-100 py-16 text-center px-4">
-      <h1 class="font-heading text-6xl text-primary mb-4">Nuestra Carta</h1>
-      <p class="text-text/70 italic font-serif">"Sabores de siempre, como nunca."</p>
-    </div>
+	<Header />
 
-    <div class="max-w-4xl mx-auto px-4 py-16 space-y-16">
-      {sections.map((section) => (
-        <section>
-          <h2 class="text-3xl font-heading text-center text-accent mb-8 pb-2 border-b border-accent/20 inline-block w-full">{section.title}</h2>
-          <div class="space-y-6">
-            {section.items.map((item) => (
-              <div class="flex justify-between items-baseline group relative overflow-hidden">
-                <div class="w-full relative z-10 bg-background pr-4">
-                  <h3 class="text-xl font-medium text-primary group-hover:text-accent transition-colors display-inline">{item.name}</h3>
-                  <p class="text-stone-500 text-sm italic">{item.desc}</p>
-                </div>
-                <div class="absolute bottom-2 left-0 w-full border-b border-dotted border-stone-300 -z-0"></div>
-                <span class="text-lg font-bold text-primary pl-4 bg-background relative z-10">{item.price}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-      ))}
-    </div>
-    
-    <div class="text-center pb-20">
-      <Button href="/reservas">Reservar Mesa para Probarlo</Button>
-    </div>
-  </main>
-  <Footer />
+	<main class="bg-secondary pt-32">
+		<!-- Menu Hero -->
+		<section class="editorial-container py-24 relative overflow-hidden">
+			<div
+				class="absolute -top-24 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"
+			>
+			</div>
+
+			<div class="max-w-4xl mx-auto text-center reveal-on-scroll">
+				<span
+					class="text-primary/40 font-sans text-xs uppercase tracking-[0.4em] mb-6 block"
+					>La Selección</span
+				>
+				<h1
+					class="text-primary font-heading text-6xl md:text-8xl leading-none mb-8"
+				>
+					Nuestra Carta
+				</h1>
+				<div class="w-24 h-px bg-primary/20 mx-auto mb-8"></div>
+				<p
+					class="text-primary/60 font-serif italic text-xl max-w-xl mx-auto leading-relaxed"
+				>
+					"Sabores de siempre, como nunca. Una selección honesta basada en el
+					producto y la tradición desde 1821."
+				</p>
+			</div>
+		</section>
+
+		<!-- Menu Sections -->
+		<section class="pb-32">
+			<div class="editorial-container">
+				<div class="max-w-4xl mx-auto">
+					<div class="space-y-32">
+						{
+							sections.map((section, sIdx) => (
+								<section
+									class="reveal-on-scroll"
+									style={`transition-delay: ${sIdx * 0.1}s`}
+								>
+									<div class={`grid lg:grid-cols-12 gap-12 items-center ${sIdx % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
+										<!-- Text Content -->
+										<div class={`lg:col-span-7 ${sIdx % 2 !== 0 ? 'lg:order-2' : ''}`}>
+											<div class="mb-16">
+												<h2 class="text-primary font-heading text-4xl md:text-5xl mb-4 italic">
+													{section.title}
+												</h2>
+												<p class="text-primary/40 font-sans text-xs uppercase tracking-widest">
+													{section.note}
+												</p>
+											</div>
+
+											<div class="grid gap-y-4">
+												{section.items.map((item, iIdx) => (
+													<div class="group py-8 px-6 border-b border-primary/5 hover:bg-primary/2 transition-all duration-500 relative">
+														<!-- Vertical accent line -->
+														<div class="absolute left-0 top-0 bottom-0 w-px bg-primary scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top" />
+
+														<div class="flex justify-between items-end mb-4 group-hover:translate-x-2 transition-transform duration-500">
+															<h3 class="text-primary font-heading text-2xl">
+																{item.name}
+															</h3>
+															<div class="grow mx-4 h-px border-b border-dotted border-primary/10" />
+															<span class="text-primary font-sans font-bold text-lg">
+																{item.price}
+															</span>
+														</div>
+														<p class="text-primary/60 font-sans text-sm leading-relaxed max-w-lg group-hover:translate-x-2 transition-transform duration-500">
+															{item.desc}
+														</p>
+													</div>
+												))}
+											</div>
+										</div>
+
+										<!-- Section Image -->
+										<div class={`lg:col-span-5 ${sIdx % 2 !== 0 ? 'lg:order-1' : ''}`}>
+											<div class="relative group">
+												<div class="absolute -inset-4 border border-primary/5 -z-10 group-hover:-inset-6 transition-all duration-1000"></div>
+												<div class="aspect-4/5 overflow-hidden bg-white shadow-2xl">
+													<img 
+														src={section.image} 
+														alt={section.title} 
+														class="w-full h-full object-cover grayscale-20 group-hover:grayscale-0 transition-all duration-[2s] group-hover:scale-105"
+													/>
+												</div>
+											</div>
+										</div>
+									</div>
+								</section>
+							))
+						}
+					</div>
+
+					<!-- Bottom CTA -->
+					<div class="mt-32 text-center reveal-on-scroll">
+						<div
+							class="bg-primary/5 p-12 lg:p-20 relative overflow-hidden group"
+						>
+							<div
+								class="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out -z-10"
+							>
+							</div>
+
+							<div class="relative z-10">
+								<h3
+									class="text-primary group-hover:text-white font-heading text-3xl md:text-4xl mb-8 transition-colors duration-500"
+								>
+									¿Desea asegurar su mesa?
+								</h3>
+								<Button
+									href="/reservas"
+									variant="ghost"
+									class="px-12 py-4 border border-primary/20 group-hover:border-white/40 text-primary group-hover:text-white transition-all duration-500"
+								>
+									RESERVAR AHORA
+								</Button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+
+	<!-- Reveal Animation Script -->
+	<script is:inline>
+		const observerOptions = { threshold: 0.1 };
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("visible");
+				}
+			});
+		}, observerOptions);
+
+		document
+			.querySelectorAll(".reveal-on-scroll")
+			.forEach((el) => observer.observe(el));
+	</script>
 </Layout>

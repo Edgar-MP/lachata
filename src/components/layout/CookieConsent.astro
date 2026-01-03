@@ -1,0 +1,75 @@
+---
+
+---
+
+<div
+	id="cookie-consent"
+	class="fixed bottom-8 left-8 right-8 md:left-auto md:max-w-md bg-white shadow-2xl border border-primary/10 p-8 z-50 transform translate-y-full opacity-0 transition-all duration-700 ease-out"
+>
+	<div class="space-y-6">
+		<div class="flex items-center gap-4">
+			<div
+				class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="20"
+					height="20"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					><path
+						d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"
+					></path><path d="M8.5 8.5v.01"></path><path d="M16 15.5v.01"
+					></path><path d="M12 12v.01"></path><path d="M11 17v.01"
+					></path><path d="M7 14v.01"></path></svg
+				>
+			</div>
+			<h3
+				class="text-primary font-heading text-xl uppercase tracking-widest"
+			>
+				Experiencia
+			</h3>
+		</div>
+
+		<p class="text-primary/60 font-sans text-sm leading-relaxed">
+			Utilizamos cookies propias y de terceros para mejorar su experiencia
+			y nuestros servicios mediante el análisis de su navegación.
+		</p>
+
+		<div class="flex flex-col sm:flex-row gap-4 pt-2">
+			<button
+				id="accept-cookies"
+				class="flex-1 bg-primary text-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-primary-dark transition-colors"
+			>
+				Aceptar
+			</button>
+			<a
+				href="/cookies"
+				class="flex-1 border border-primary/10 text-primary px-6 py-3 text-[10px] uppercase tracking-[0.2em] text-center hover:bg-primary/5 transition-colors"
+			>
+				Más info
+			</a>
+		</div>
+	</div>
+</div>
+
+<script>
+	const consent = document.getElementById("cookie-consent");
+	const acceptBtn = document.getElementById("accept-cookies");
+
+	// Check if user already consented
+	if (!localStorage.getItem("cookie-consent")) {
+		setTimeout(() => {
+			consent?.classList.remove("translate-y-full", "opacity-0");
+		}, 2000);
+	}
+
+	acceptBtn?.addEventListener("click", () => {
+		localStorage.setItem("cookie-consent", "true");
+		consent?.classList.add("translate-y-full", "opacity-0");
+	});
+</script>

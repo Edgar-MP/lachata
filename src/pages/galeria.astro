@@ -2,28 +2,112 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+
+const images = [
+  { 
+    src: "https://images.unsplash.com/photo-1514361892635-6b07e31e75f9?q=80&w=2070&auto=format&fit=crop", 
+    alt: "Nuestra bodega de Rioja",
+    aspect: "aspect-[3/4]"
+  },
+  { 
+    src: "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop", 
+    alt: "Ambiente tradicional",
+    aspect: "aspect-square"
+  },
+  { 
+    src: "https://images.unsplash.com/photo-1547928576-a4a33237bec3?q=80&w=2070&auto=format&fit=crop", 
+    alt: "Patatas con chorizo",
+    aspect: "aspect-video"
+  },
+  { 
+    src: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?q=80&w=2070&auto=format&fit=crop", 
+    alt: "Chuletillas al sarmiento",
+    aspect: "aspect-[4/5]"
+  },
+  { 
+    src: "https://images.unsplash.com/photo-1541414779316-956a5084c0d4?q=80&w=1968&auto=format&fit=crop", 
+    alt: "Producto local",
+    aspect: "aspect-square"
+  },
+  { 
+    src: "https://images.unsplash.com/photo-1543412849-fb2526095111?q=80&w=1974&auto=format&fit=crop", 
+    alt: "Detalle del restaurante",
+    aspect: "aspect-[3/4]"
+  },
+  { 
+    src: "https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?q=80&w=2070&auto=format&fit=crop", 
+    alt: "Mesa preparada",
+    aspect: "aspect-video"
+  },
+  { 
+    src: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=2070&auto=format&fit=crop", 
+    alt: "Vino y tradición",
+    aspect: "aspect-square"
+  }
+];
 ---
 
-<Layout title="Galería | La Chata 1821">
-  <Header />
-  <main class="pt-20">
-    <div class="py-12 text-center">
-      <h1 class="font-heading text-5xl text-primary">Galería</h1>
-    </div>
-    
-    <div class="max-w-7xl mx-auto px-4 pb-20">
-      <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
-          <div class="break-inside-avoid rounded-lg overflow-hidden group relative">
-             <div class="bg-gray-200 aspect-square md:aspect-video lg:aspect-[3/4] flex items-center justify-center text-gray-400 group-hover:bg-gray-300 transition-colors">
-                <span class="font-heading text-lg">Foto {i}</span>
-             </div>
-             <!-- In real implementation, these would be `img` tags -->
-             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </main>
-  <Footer />
+<Layout title="Galería Visual | La Chata 1821">
+	<Header />
+	
+	<main class="bg-secondary pt-32">
+		<!-- Gallery Hero -->
+		<section class="editorial-container py-24">
+			<div class="max-w-4xl reveal-on-scroll">
+				<span class="text-primary/40 font-sans text-xs uppercase tracking-[0.4em] mb-6 block">Atmósfera</span>
+				<h1 class="text-primary font-heading text-6xl md:text-8xl leading-none mb-8">
+					Nuestra <br />
+					<span class="italic font-normal ml-[0.5em] md:ml-[1em]">esencia</span>
+				</h1>
+			</div>
+		</section>
+
+		<!-- Editorial Grid -->
+		<section class="pb-32">
+			<div class="editorial-container">
+				<div class="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+					{images.map((image, idx) => (
+						<div 
+							class="break-inside-avoid reveal-on-scroll"
+							style={`transition-delay: ${idx * 0.1}s`}
+						>
+							<div class="group relative overflow-hidden bg-white">
+								<div class={`relative ${image.aspect} overflow-hidden`}>
+									<img 
+										src={image.src} 
+										alt={image.alt} 
+										class="w-full h-full object-cover grayscale-30 group-hover:grayscale-0 transition-all duration-[2s] group-hover:scale-110"
+									/>
+									<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+								</div>
+								
+								<!-- Editorial Caption on Hover -->
+								<div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-linear-to-t from-black/60 to-transparent">
+									<p class="text-white font-sans text-xs uppercase tracking-widest">{image.alt}</p>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+
+	<!-- Reveal Animation Script -->
+	<script is:inline>
+		const observerOptions = { threshold: 0.1 };
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("visible");
+				}
+			});
+		}, observerOptions);
+
+		document
+			.querySelectorAll(".reveal-on-scroll")
+			.forEach((el) => observer.observe(el));
+	</script>
 </Layout>

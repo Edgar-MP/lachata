@@ -1,20 +1,96 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/layout/Header.astro';
-import Footer from '../components/layout/Footer.astro';
-import ReservationWidget from '../components/sections/ReservationWidget.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+import ReservationWidget from "../components/sections/ReservationWidget.astro";
 ---
 
 <Layout title="Reservas | La Chata 1821">
-  <Header />
-  <main class="pt-20">
-    <div class="bg-primary py-12 text-center text-white">
-      <h1 class="font-heading text-5xl">Reservas</h1>
-      <p class="mt-4 text-white/80 max-w-2xl mx-auto px-4">
-        Disfrute de la auténtica cocina riojana. Recomendamos reservar con antelación para fines de semana.
-      </p>
-    </div>
-    <ReservationWidget />
-  </main>
-  <Footer />
+	<Header />
+
+	<main class="bg-secondary pt-24">
+		<!-- Reservation Hero -->
+		<section class="editorial-container py-12 relative overflow-hidden">
+			<div
+				class="absolute -top-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"
+			>
+			</div>
+
+			<div class="max-w-4xl mx-auto text-center reveal-on-scroll">
+				<span
+					class="text-primary/40 font-sans text-xs uppercase tracking-[0.4em] mb-6 block"
+					>Asegure su mesa</span
+				>
+				<h1
+					class="text-primary font-heading text-6xl md:text-7xl leading-none mb-6"
+				>
+					Reservas
+				</h1>
+				<div class="w-16 h-px bg-primary/20 mx-auto mb-6"></div>
+				<p
+					class="text-primary/60 font-serif italic text-xl max-w-xl mx-auto leading-relaxed"
+				>
+					"Disfrute de la auténtica cocina riojana en un ambiente
+					histórico. Recomendamos reservar con antelación para
+					asegurar su experiencia."
+				</p>
+			</div>
+		</section>
+
+		<!-- Widget Section -->
+		<section class="pb-32 reveal-on-scroll" style="transition-delay: 0.2s">
+			<div class="editorial-container max-w-5xl">
+				<div
+					class="bg-white shadow-2xl overflow-hidden border border-primary/5"
+				>
+					<ReservationWidget />
+				</div>
+
+				<div
+					class="mt-12 grid md:grid-cols-2 gap-8 text-sm text-primary/40 font-sans uppercase tracking-widest"
+				>
+					<div class="p-8 border border-primary/5">
+						<h3
+							class="font-bold text-primary/60 mb-2 underline decoration-1 underline-offset-4 decoration-primary/20"
+						>
+							Política de Reservas
+						</h3>
+						<p class="leading-relaxed">
+							Agradecemos puntualidad. Las mesas se guardarán por
+							cortesía durante 15 minutos.
+						</p>
+					</div>
+					<div class="p-8 border border-primary/5">
+						<h3
+							class="font-bold text-primary/60 mb-2 underline decoration-1 underline-offset-4 decoration-primary/20"
+						>
+							Grupos Grandes
+						</h3>
+						<p class="leading-relaxed">
+							Para grupos de más de 8 personas, por favor
+							contáctenos directamente por teléfono.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+
+	<!-- Reveal Animation Script -->
+	<script is:inline>
+		const observerOptions = { threshold: 0.1 };
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("visible");
+				}
+			});
+		}, observerOptions);
+
+		document
+			.querySelectorAll(".reveal-on-scroll")
+			.forEach((el) => observer.observe(el));
+	</script>
 </Layout>

@@ -1,0 +1,110 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+---
+
+<Layout title="Política de Privacidad | La Chata 1821">
+	<Header />
+
+	<main class="bg-secondary pt-32">
+		<section class="editorial-container py-24">
+			<div class="max-w-4xl reveal-on-scroll">
+				<span
+					class="text-primary/40 font-sans text-xs uppercase tracking-[0.4em] mb-6 block"
+					>Privacidad</span
+				>
+				<h1
+					class="text-primary font-heading text-6xl md:text-8xl leading-none mb-12"
+				>
+					Privacidad
+				</h1>
+
+				<div
+					class="prose prose-stone prose-lg max-w-none text-primary/80 font-sans space-y-12"
+				>
+					<div
+						class="reveal-on-scroll"
+						style="transition-delay: 0.1s"
+					>
+						<h2 class="text-primary font-heading text-3xl mb-6">
+							1. Protección de Datos
+						</h2>
+						<p>
+							La Chata 1821 informa a los usuarios de su sitio web
+							acerca de su política de protección de datos de
+							carácter personal. El tratamiento de los mismos se
+							realiza de acuerdo con lo dispuesto en el Reglamento
+							(UE) 2016/679 del Parlamento Europeo y del Consejo,
+							de 27 de abril de 2016 (RGPD).
+						</p>
+					</div>
+
+					<div
+						class="reveal-on-scroll"
+						style="transition-delay: 0.2s"
+					>
+						<h2 class="text-primary font-heading text-3xl mb-6">
+							2. Finalidad del Tratamiento
+						</h2>
+						<p>
+							Los datos proporcionados por el usuario a través de
+							formularios de contacto o reservas serán utilizados
+							exclusivamente para gestionar la solicitud realizada
+							y, en caso de consentimiento explícito, para el
+							envío de comunicaciones comerciales.
+						</p>
+					</div>
+
+					<div
+						class="reveal-on-scroll"
+						style="transition-delay: 0.3s"
+					>
+						<h2 class="text-primary font-heading text-3xl mb-6">
+							3. Legitimación
+						</h2>
+						<p>
+							La base legal para el tratamiento de sus datos es el
+							consentimiento del interesado. En el caso de
+							reservas, el tratamiento es necesario para la
+							ejecución de un contrato o para la aplicación de
+							medidas precontractuales.
+						</p>
+					</div>
+
+					<div
+						class="reveal-on-scroll"
+						style="transition-delay: 0.4s"
+					>
+						<h2 class="text-primary font-heading text-3xl mb-6">
+							4. Sus Derechos
+						</h2>
+						<p>
+							Usted tiene derecho a acceder, rectificar y suprimir
+							sus datos, así como otros derechos, como se explica
+							en la información adicional que puede solicitar en
+							nuestro domicilio o vía email.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+
+	<script is:inline>
+		const observerOptions = { threshold: 0.1 };
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("visible");
+				}
+			});
+		}, observerOptions);
+
+		document
+			.querySelectorAll(".reveal-on-scroll")
+			.forEach((el) => observer.observe(el));
+	</script>
+</Layout>

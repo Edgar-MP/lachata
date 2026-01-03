@@ -1,0 +1,92 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+---
+
+<Layout title="Política de Cookies | La Chata 1821">
+	<Header />
+
+	<main class="bg-secondary pt-32">
+		<section class="editorial-container py-24">
+			<div class="max-w-4xl reveal-on-scroll">
+				<span
+					class="text-primary/40 font-sans text-xs uppercase tracking-[0.4em] mb-6 block"
+					>Navegación</span
+				>
+				<h1
+					class="text-primary font-heading text-6xl md:text-8xl leading-none mb-12"
+				>
+					Cookies
+				</h1>
+
+				<div
+					class="prose prose-stone prose-lg max-w-none text-primary/80 font-sans space-y-12"
+				>
+					<div
+						class="reveal-on-scroll"
+						style="transition-delay: 0.1s"
+					>
+						<h2 class="text-primary font-heading text-3xl mb-6">
+							¿Qué son las cookies?
+						</h2>
+						<p>
+							Una cookie es un fichero que se descarga en su
+							ordenador al acceder a determinadas páginas web. Las
+							cookies permiten a una página web, entre otras
+							cosas, almacenar y recuperar información sobre los
+							hábitos de navegación de un usuario o de su equipo.
+						</p>
+					</div>
+
+					<div
+						class="reveal-on-scroll"
+						style="transition-delay: 0.2s"
+					>
+						<h2 class="text-primary font-heading text-3xl mb-6">
+							Tipos de cookies utilizadas
+						</h2>
+						<p>
+							Este sitio web utiliza cookies técnicas para el
+							correcto funcionamiento del portal y cookies de
+							análisis para entender cómo interactúan los usuarios
+							con nuestra web de forma anónima.
+						</p>
+					</div>
+
+					<div
+						class="reveal-on-scroll"
+						style="transition-delay: 0.3s"
+					>
+						<h2 class="text-primary font-heading text-3xl mb-6">
+							Gestión de cookies
+						</h2>
+						<p>
+							Usted puede permitir, bloquear o eliminar las
+							cookies instaladas en su equipo mediante la
+							configuración de las opciones del navegador
+							instalado en su ordenador.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+
+	<script is:inline>
+		const observerOptions = { threshold: 0.1 };
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("visible");
+				}
+			});
+		}, observerOptions);
+
+		document
+			.querySelectorAll(".reveal-on-scroll")
+			.forEach((el) => observer.observe(el));
+	</script>
+</Layout>

@@ -1,38 +1,169 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/layout/Header.astro';
-import Footer from '../components/layout/Footer.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
 ---
 
-<Layout title="Nosotros | La Chata 1821">
-  <Header />
-  <main class="pt-20">
-    <div class="relative h-[50vh] min-h-[400px]">
-        <div class="absolute inset-0 bg-black/50">
-           <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1974&auto=format&fit=crop" alt="Historia La Chata" class="w-full h-full object-cover opacity-50 block" />
-        </div>
-        <div class="absolute inset-0 flex items-center justify-center text-center px-4">
-            <h1 class="text-white font-heading text-6xl drop-shadow-lg">Historia Viva</h1>
-        </div>
-    </div>
+<Layout title="Nuestra Historia | La Chata 1821">
+	<Header />
 
-    <article class="max-w-3xl mx-auto px-4 py-20 bg-white">
-        <p class="text-xl leading-relaxed text-stone-600 mb-8 first-letter:text-5xl first-letter:font-heading first-letter:text-accent first-letter:mr-2 first-letter:float-left">
-            La Chata vuelve a la vida un lustro después, después de haber dado de comer desde 1821. Lo hacemos con «la ilusión» de una nueva dirección, pero sin dejar atrás ni ápice de la tradición a la que obliga un espacio como éste.
-        </p>
-        <p class="text-lg leading-relaxed text-stone-600 mb-8">
-            Ponemos en marcha este templo de la cocina tradicional riojana. En nuestras mesas se han sentado generaciones, compartiendo no solo comida, sino historias, acuerdos y celebraciones.
-        </p>
-        
-        <div class="my-12 p-8 bg-stone-50 border-l-4 border-primary italic text-stone-700 font-serif text-lg">
-            "Uno de esos rincones a los que acudir para resguardarse del frío al calor de unas buenas patatas con chorizo."
-        </div>
+	<main class="bg-secondary pt-32">
+		<!-- Hero Section -->
+		<section class="editorial-container py-24">
+			<div class="max-w-4xl">
+				<span
+					class="text-primary/40 font-sans text-xs uppercase tracking-[0.4em] mb-6 block reveal-on-scroll"
+					>La Herencia</span
+				>
+				<h1
+					class="text-primary font-heading text-6xl md:text-9xl leading-[0.85] mb-12 reveal-on-scroll"
+					style="transition-delay: 0.1s"
+				>
+					Historia <br />
+					<span class="italic font-normal ml-[0.5em] md:ml-[1em]"
+						>viva</span
+					>
+				</h1>
+			</div>
+		</section>
 
-        <h2 class="text-3xl font-heading text-primary mb-6">Nuestra Filosofía</h2>
-        <p class="text-lg leading-relaxed text-stone-600 mb-8">
-            Respeto absoluto al producto. En La Chata 1821 no inventamos nada, recuperamos lo bueno. Caparrones de profundidad, chuletillas al sarmiento, pescados que saben a mar y postres que saben a hogar.
-        </p>
-    </article>
-  </main>
-  <Footer />
+		<!-- Asymmetric Image & Introduction -->
+		<section class="editorial-container pb-32">
+			<div class="grid lg:grid-cols-12 gap-12 items-start">
+				<div class="lg:col-span-7 reveal-on-scroll">
+					<div class="relative group">
+						<div
+							class="absolute -inset-4 border border-primary/5 -z-10 group-hover:-inset-6 transition-all duration-1000"
+						>
+						</div>
+						<div
+							class="aspect-4/5 overflow-hidden bg-white shadow-2xl"
+						>
+							<img
+								src="https://images.unsplash.com/photo-1543412849-fb2526095111?q=80&w=1974&auto=format&fit=crop"
+								alt="Fachada histórica y ambiente"
+								class="w-full h-full object-cover grayscale-20 group-hover:grayscale-0 transition-all duration-[2s] group-hover:scale-105"
+							/>
+						</div>
+					</div>
+				</div>
+
+				<div
+					class="lg:col-span-5 lg:pt-24 reveal-on-scroll"
+					style="transition-delay: 0.2s"
+				>
+					<div class="max-w-md">
+						<p
+							class="text-primary font-heading text-3xl mb-12 leading-tight"
+						>
+							La Chata vuelve a la vida un lustro después,
+							manteniendo el fuego sagrado de la tradición desde
+							1821.
+						</p>
+						<div
+							class="space-y-8 text-primary/70 font-sans text-lg leading-relaxed"
+						>
+							<p>
+								Lo hacemos con la ilusión de una nueva
+								dirección, pero sin dejar atrás ni un ápice de
+								la honestidad a la que obliga un espacio como
+								este, en el corazón latente de Logroño.
+							</p>
+							<p>
+								Ponemos en marcha este templo de la cocina
+								tradicional riojana. En nuestras mesas se han
+								sentado generaciones, compartiendo no solo
+								comida, sino historias que hoy forman parte de
+								nuestro patrimonio.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Quote Section -->
+		<section class="bg-primary py-32 overflow-hidden">
+			<div class="editorial-container">
+				<div class="max-w-4xl mx-auto text-center reveal-on-scroll">
+					<div class="w-12 h-px bg-white/20 mx-auto mb-12"></div>
+					<h2
+						class="text-secondary font-heading text-4xl md:text-6xl italic leading-tight"
+					>
+						"Uno de esos rincones a los que acudir para resguardarse
+						del frío al calor de unas buenas patatas con chorizo."
+					</h2>
+					<div class="w-12 h-px bg-white/20 mx-auto mt-12"></div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Second Narrative Block -->
+		<section class="editorial-container py-32">
+			<div class="grid lg:grid-cols-12 gap-12 items-center">
+				<div class="lg:col-span-5 reveal-on-scroll">
+					<h3 class="text-primary font-heading text-5xl mb-8">
+						Nuestra Filosofía
+					</h3>
+					<div
+						class="space-y-6 text-primary/60 font-sans text-lg leading-relaxed max-w-sm"
+					>
+						<p>
+							Respeto absoluto al producto y a la memoria del
+							paladar. En La Chata 1821 recuperamos lo bueno:
+							caparrones de profundidad, chuletillas al sarmiento
+							y pescados que saben a mar.
+						</p>
+						<p>
+							No buscamos inventar, sino honrar lo que ha
+							funcionado durante siglos. El sabor del hogar
+							trasladado a la mesa de Carnicerías 3.
+						</p>
+					</div>
+				</div>
+
+				<div
+					class="lg:col-span-7 reveal-on-scroll"
+					style="transition-delay: 0.2s"
+				>
+					<div class="grid grid-cols-2 gap-4">
+						<div
+							class="aspect-3/4 overflow-hidden bg-white translate-y-12"
+						>
+							<img
+								src="https://images.unsplash.com/photo-1541414779316-956a5084c0d4?q=80&w=1968&auto=format&fit=crop"
+								alt="Productos de la tierra"
+								class="w-full h-full object-cover hover:scale-110 transition-transform duration-[2s]"
+							/>
+						</div>
+						<div class="aspect-3/4 overflow-hidden bg-white">
+							<img
+								src="https://images.unsplash.com/photo-1514361892635-6b07e31e75f9?q=80&w=2070&auto=format&fit=crop"
+								alt="Cava y vinos"
+								class="w-full h-full object-cover hover:scale-110 transition-transform duration-[2s]"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+
+	<!-- Simple Reveal Animation Script (same as index for consistency) -->
+	<script is:inline>
+		const observerOptions = { threshold: 0.1 };
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("visible");
+				}
+			});
+		}, observerOptions);
+
+		document
+			.querySelectorAll(".reveal-on-scroll")
+			.forEach((el) => observer.observe(el));
+	</script>
 </Layout>
