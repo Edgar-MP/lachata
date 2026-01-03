@@ -43,33 +43,66 @@
 		<div class="flex flex-col sm:flex-row gap-4 pt-2">
 			<button
 				id="accept-cookies"
-				class="flex-1 bg-primary text-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-primary-dark transition-colors"
+				type="button"
+				class="flex-1 bg-primary text-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-primary-dark transition-all duration-300 shadow-sm"
 			>
 				Aceptar
 			</button>
-			<a
-				href="/cookies"
-				class="flex-1 border border-primary/10 text-primary px-6 py-3 text-[10px] uppercase tracking-[0.2em] text-center hover:bg-primary/5 transition-colors"
+			<button
+				id="decline-cookies"
+				type="button"
+				class="flex-1 border border-primary/10 text-primary px-6 py-3 text-[10px] uppercase tracking-[0.2em] text-center hover:bg-primary/5 transition-all duration-300"
 			>
-				Más info
-			</a>
+				Rechazar
+			</button>
 		</div>
 	</div>
 </div>
 
 <script>
-	const consent = document.getElementById("cookie-consent");
-	const acceptBtn = document.getElementById("accept-cookies");
+	function initCookies() {
+		const consent = document.getElementById("cookie-consent");
+		const acceptBtn = document.getElementById("accept-cookies");
+		const declineBtn = document.getElementById("decline-cookies");
 
-	// Check if user already consented
-	if (!localStorage.getItem("cookie-consent")) {
-		setTimeout(() => {
-			consent?.classList.remove("translate-y-full", "opacity-0");
-		}, 2000);
+		if (!consent || !acceptBtn || !declineBtn) return;
+
+		// Check if user already consented or declined
+		const hasPreference = localStorage.getItem("cookie-consent");
+
+		if (!hasPreference) {
+			// Show with a more elegant delay and animation
+			setTimeout(() => {
+				consent.classList.remove("translate-y-full", "opacity-0");
+				consent.classList.add("translate-y-0", "opacity-100");
+			}, 1500);
+		}
+
+		function hideBanner() {
+			if (consent) {
+				consent.classList.add("translate-y-full", "opacity-0");
+				consent.classList.remove("translate-y-0", "opacity-100");
+			}
+		}
+
+		acceptBtn.addEventListener("click", () => {
+			localStorage.setItem("cookie-consent", "accepted");
+			const loadGA = (window as any).loadGoogleAnalytics;
+			if (typeof loadGA === "function") {
+				loadGA();
+			}
+			hideBanner();
+		});
+
+		declineBtn.addEventListener("click", () => {
+			localStorage.setItem("cookie-consent", "declined");
+			hideBanner();
+		});
 	}
 
-	acceptBtn?.addEventListener("click", () => {
-		localStorage.setItem("cookie-consent", "true");
-		consent?.classList.add("translate-y-full", "opacity-0");
-	});
+	// Run on initial load
+	initCookies();
+
+	// Support for Astro View Transitions
+	document.addEventListener("astro:after-swap", initCookies);
 </script>

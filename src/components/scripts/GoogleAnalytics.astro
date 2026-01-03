@@ -1,0 +1,31 @@
+---
+interface Props {
+	id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<!-- Google Analytics 4 - RGPD Compliant -->
+<script is:inline define:vars={{ id }}>
+	window.loadGoogleAnalytics = function () {
+		const s = document.createElement("script");
+		s.async = true;
+		s.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
+		document.head.appendChild(s);
+
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
+		gtag("config", id, { anonymize_ip: true });
+
+		console.log("GA4 Loaded");
+	};
+
+	// Check on load if we already have consent
+	if (localStorage.getItem("cookie-consent") === "accepted") {
+		window.loadGoogleAnalytics();
+	}
+</script>
