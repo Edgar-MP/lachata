@@ -3,57 +3,57 @@
 
 <section id="reservas" class="relative py-32 bg-primary overflow-hidden">
   <!-- Decorative background elements -->
-  <div class="absolute top-0 right-0 w-[60%] h-full bg-black/5 -skew-x-12 translate-x-1/2"></div>
-  <div class="absolute bottom-0 left-0 w-32 h-32 bg-white/5 blur-3xl rounded-full"></div>
+  <div class="absolute top-0 right-0 w-full h-full bg-black/5 -skew-x-12 translate-x-1/2"></div>
+  <div class="absolute bottom-0 left-0 w-64 h-64 bg-white/5 blur-3xl rounded-full"></div>
 
   <div class="editorial-container relative z-10">
-    <div class="grid lg:grid-cols-2 gap-20 items-center">
-      <!-- Content Side -->
-      <div class="max-w-md">
-        <span class="inline-block text-secondary/60 font-sans text-xs uppercase tracking-[0.4em] mb-6">Su mesa le espera</span>
-        <h2 class="text-secondary font-heading text-6xl md:text-7xl leading-none mb-8">
-          Asegure su <span class="italic font-normal">experiencia</span>
+    <!-- Horizontal Header for the section -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+      <div class="max-w-xl">
+        <span class="inline-block text-secondary/60 font-sans text-xs uppercase tracking-[0.4em] mb-4">Garantice su mesa</span>
+        <h2 class="text-secondary font-heading text-6xl md:text-8xl leading-none">
+          Reservas <span class="italic font-normal">Online</span>
         </h2>
-        <p class="text-secondary/80 text-lg font-sans leading-relaxed mb-12">
-          Recomendamos reservar con antelación, especialmente para grupos o fines de semana. La cocina riojana se disfruta mejor con calma.
-        </p>
-        
-        <div class="flex flex-col gap-6 text-secondary/60 font-sans text-sm">
-          <div class="flex items-center gap-4 border-l border-secondary/20 pl-6">
-            <span class="font-bold text-secondary">INFO</span>
-            <p>Pasados 15 min sin aviso no se guardará la mesa.</p>
-          </div>
-          <div class="flex items-center gap-4 border-l border-secondary/20 pl-6">
-            <span class="font-bold text-secondary">TLF</span>
-            <p>Para más de 9 personas contacte al +34 667 28 67 66.</p>
-          </div>
-        </div>
       </div>
+      <div class="max-w-xs text-secondary/60 font-sans text-sm leading-relaxed border-l border-secondary/20 pl-6">
+        <p>Asegure su experiencia en el templo de la cocina riojana. Para grupos de más de 9 personas, por favor contacte telefónicamente.</p>
+      </div>
+    </div>
 
-      <!-- Widget Side -->
-      <div class="relative">
-        <!-- Floating frame effect -->
-        <div class="absolute -inset-4 border border-secondary/10 -z-10 bg-secondary/5 backdrop-blur-sm shadow-2xl"></div>
-        
-        <div class="bg-white p-2 sm:p-4 shadow-3xl">
-          <div class="bg-stone-50 aspect-video lg:aspect-auto flex items-center justify-center -z-10 absolute inset-0 text-primary/10 font-heading text-2xl uppercase tracking-widest hidden">
-             Cargando Reservas...
-          </div>
-          
-          <iframe 
-            loading="lazy" 
-            id="restaurante-la-chata-1821" 
-            title="Reservas La Chata 1821" 
-            src="https://www.covermanager.com/reservation/module_restaurant/restaurante-la-chata-1821/spanish" 
-            allow="payment" 
-            frameborder="0" 
-            height="650" 
-            width="100%"
-            style="overflow: hidden; min-height: 600px; width: 100%; border: none;"
-            scrolling="no"
-          >
-          </iframe>
-        </div>
+    <!-- Expansive Horizontal Widget Area -->
+    <div class="relative reveal-on-scroll">
+      <div class="absolute -inset-4 border border-secondary/10 -z-10 bg-secondary/5 backdrop-blur-sm shadow-2xl"></div>
+      
+      <div class="bg-white p-4 shadow-3xl">
+        <iframe 
+          loading="lazy" 
+          id="restaurante-la-chata-1821" 
+          title="Reservas La Chata 1821" 
+          src="https://www.covermanager.com/reservation/module_restaurant/restaurante-la-chata-1821/spanish" 
+          allow="payment" 
+          frameborder="0" 
+          height="650" 
+          width="100%"
+          style="overflow: hidden; min-height: 600px; width: 100%; border: none;"
+          scrolling="no"
+        >
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Info Footer for the section -->
+    <div class="mt-12 flex flex-wrap gap-x-16 gap-y-6 text-secondary/40 font-sans text-[10px] uppercase tracking-widest">
+      <div class="flex items-center gap-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-secondary/20"></span>
+        <span>Confirmación inmediata</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-secondary/20"></span>
+        <span>Pasados 15 min no se guarda la mesa</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-secondary/20"></span>
+        <span>Atención al cliente: +34 667 28 67 66</span>
       </div>
     </div>
   </div>
