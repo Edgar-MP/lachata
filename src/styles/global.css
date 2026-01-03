@@ -80,7 +80,7 @@
 
 @layer components {
   .editorial-container {
-    @apply max-w-screen-xl mx-auto px-6 lg:px-12;
+    @apply max-w-7xl mx-auto px-6 lg:px-12;
   }
 
   .reveal-on-scroll {

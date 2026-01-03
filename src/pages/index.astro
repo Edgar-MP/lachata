@@ -25,21 +25,25 @@ import Button from "../components/base/Button.astro";
 						<h2
 							class="text-primary font-heading text-6xl md:text-7xl leading-none mb-10"
 						>
-							Corazón <br /><span class="italic font-normal ml-8">Riojano</span>
+							Corazón <br /><span class="italic font-normal ml-8"
+								>Riojano</span
+							>
 						</h2>
 						<div
 							class="space-y-8 text-primary/80 font-sans leading-relaxed text-lg"
 						>
 							<p>
-								La Chata vuelve a ser uno de esos rincones -al principio un
-								tanto secretos- a los que acudir para resguardarse del frío al
-								calor de unas buenas patatas con chorizo o unos caparrones de
+								La Chata vuelve a ser uno de esos rincones -al
+								principio un tanto secretos- a los que acudir
+								para resguardarse del frío al calor de unas
+								buenas patatas con chorizo o unos caparrones de
 								profundidad.
 							</p>
 							<p>
-								Tras un lustro de silencio, este espacio que ha alimentado a
-								Logroño desde 1821 vuelve con una nueva dirección, pero con el
-								mismo respeto sagrado por la tradición.
+								Tras un lustro de silencio, este espacio que ha
+								alimentado a Logroño desde 1821 vuelve con una
+								nueva dirección, pero con el mismo respeto
+								sagrado por la tradición.
 							</p>
 						</div>
 
@@ -50,17 +54,22 @@ import Button from "../components/base/Button.astro";
 							>
 								Descubra nuestra historia
 								<span
-									class="w-12 h-[1px] bg-primary group-hover:w-20 transition-all duration-500"
+									class="w-12 h-px bg-primary group-hover:w-20 transition-all duration-500"
 								></span>
 							</a>
 						</div>
 					</div>
 
-					<div class="relative reveal-on-scroll" style="transition-delay: 0.2s">
-						<div class="aspect-[4/5] overflow-hidden bg-secondary relative">
+					<div
+						class="relative reveal-on-scroll"
+						style="transition-delay: 0.2s"
+					>
+						<div
+							class="aspect-[4/5] overflow-hidden bg-secondary relative"
+						>
 							<img
-								src="https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?q=80&w=2070&auto=format&fit=crop"
-								alt="Producto riojano"
+								src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=2070&auto=format&fit=crop"
+								alt="Viñedos y vino de Rioja"
 								class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-[2s]"
 							/>
 							<!-- Decorative floating text -->
@@ -88,7 +97,8 @@ import Button from "../components/base/Button.astro";
 				>
 					"Un templo de <span class="italic font-normal"
 						>cocina tradicional</span
-					> donde el tiempo se detiene ante unas chuletillas de toda la vida."
+					> donde el tiempo se detiene ante unas chuletillas de toda la
+					vida."
 				</blockquote>
 				<span
 					class="text-primary/40 font-sans text-[10px] uppercase tracking-[0.6em]"
@@ -97,69 +107,118 @@ import Button from "../components/base/Button.astro";
 			</div>
 		</section>
 
-		<!-- Discrete Menu Highlight -->
+		<!-- Editorial Menu Highlight -->
 		<section class="py-32 bg-white">
 			<div class="editorial-container">
-				<div class="flex justify-between items-end mb-20">
-					<div>
+				<div
+					class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8"
+				>
+					<div class="reveal-on-scroll">
 						<span
-							class="text-primary/40 font-sans text-xs uppercase tracking-[0.4em] mb-4 block text-center md:text-left"
-							>Selección</span
+							class="text-primary/40 font-sans text-xs uppercase tracking-[0.4em] mb-4 block"
+							>La Selección</span
 						>
 						<h2
-							class="text-primary font-heading text-6xl leading-none text-center md:text-left"
+							class="text-primary font-heading text-6xl md:text-8xl leading-none"
 						>
 							La Carta
 						</h2>
 					</div>
-					<a
-						href="/carta"
-						class="hidden md:block text-primary/40 hover:text-primary transition-colors font-sans text-xs uppercase tracking-widest border-b border-primary/20 pb-1"
-						>Ver carta completa</a
+					<div
+						class="reveal-on-scroll"
+						style="transition-delay: 0.2s"
 					>
+						<a
+							href="/carta"
+							class="group flex items-center gap-4 text-primary/60 hover:text-primary transition-colors font-sans text-xs uppercase tracking-widest border-b border-primary/10 pb-2"
+						>
+							Ver carta completa
+							<svg
+								class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+								><path d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg
+							>
+						</a>
+					</div>
 				</div>
 
-				<div
-					class="grid md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-primary/10"
-				>
+				<div class="space-y-32">
 					{
 						[
 							{
 								title: "Patatas con Chorizo",
-								desc: "El alma de la Rioja en un plato hondo.",
+								desc: "El alma de la Rioja en un plato hondo. Elaboradas a fuego lento, con el pimentón justo y el cariño de siempre.",
+								image: "https://images.unsplash.com/photo-1547928576-a4a33237bec3?q=80&w=2070&auto=format&fit=crop",
+								align: "left",
 							},
 							{
-								title: "Caparrones",
-								desc: "De profundidad, espesos y reconfortantes.",
+								title: "Caparrones de Anguiano",
+								desc: "De los de profundidad, espesos y reconfortantes. Acompañados de sus sacramentos: chorizo, tocino y guindilla.",
+								image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?q=80&w=1913&auto=format&fit=crop",
+								align: "right",
 							},
 							{
-								title: "Chuletillas",
-								desc: "Toda la vida servidas al punto exacto.",
+								title: "Chuletillas al Sarmiento",
+								desc: "Toda la vida servidas al punto exacto. El aroma del sarmiento fundido con la mejor carne de nuestra tierra.",
+								image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?q=80&w=2070&auto=format&fit=crop",
+								align: "left",
 							},
 						].map((item, idx) => (
-							<div
-								class={`p-12 group hover:bg-primary transition-colors duration-700 border-b border-primary/10 ${idx < 2 ? "md:border-r" : ""}`}
+							<article
+								class={`grid lg:grid-cols-12 gap-12 items-center reveal-on-scroll`}
+								style={`transition-delay: ${idx * 0.1}s`}
 							>
-								<span class="text-primary/20 group-hover:text-white/20 font-heading text-4xl block mb-6 transition-colors">
-									0{idx + 1}
-								</span>
-								<h3 class="text-primary group-hover:text-white font-heading text-3xl mb-4 transition-colors">
-									{item.title}
-								</h3>
-								<p class="text-primary/60 group-hover:text-white/60 font-sans text-sm leading-relaxed transition-colors">
-									{item.desc}
-								</p>
-							</div>
+								<div
+									class={`lg:col-span-7 ${item.align === "right" ? "lg:order-2" : ""}`}
+								>
+									<div class="relative group overflow-hidden">
+										<div class="aspect-video overflow-hidden bg-secondary">
+											<img
+												src={item.image}
+												alt={item.title}
+												class="w-full h-full object-cover grayscale-20 group-hover:grayscale-0 transition-all duration-[2s] group-hover:scale-105"
+											/>
+										</div>
+										<div class="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/5 -z-10 transition-transform group-hover:translate-x-4 group-hover:translate-y-4 duration-1000" />
+									</div>
+								</div>
+
+								<div
+									class={`lg:col-span-5 ${item.align === "right" ? "lg:order-1" : ""}`}
+								>
+									<div
+										class={`max-w-sm ${item.align === "right" ? "ml-auto text-right" : ""}`}
+									>
+										<span class="text-primary/20 font-heading text-6xl block mb-6">
+											0{idx + 1}
+										</span>
+										<h3 class="text-primary font-heading text-4xl mb-6">
+											{item.title}
+										</h3>
+										<p class="text-primary/60 font-sans text-lg leading-relaxed mb-8">
+											{item.desc}
+										</p>
+										<div
+											class={`w-12 h-px bg-primary/20 ${item.align === "right" ? "ml-auto" : ""}`}
+										/>
+									</div>
+								</div>
+							</article>
 						))
 					}
 				</div>
 
-				<div class="mt-12 md:hidden text-center">
-					<a
+				<!-- Final Menu CTA -->
+				<div class="mt-32 text-center reveal-on-scroll">
+					<Button
 						href="/carta"
-						class="text-primary font-sans text-xs uppercase tracking-widest border-b border-primary/20 pb-1"
-						>Ver carta completa</a
+						variant="ghost"
+						class="px-16 py-5 border border-primary/20 hover:border-primary text-primary hover:bg-primary/5"
 					>
+						VER CARTA COMPLETA
+					</Button>
 				</div>
 			</div>
 		</section>
@@ -167,14 +226,16 @@ import Button from "../components/base/Button.astro";
 		<ReservationWidget />
 
 		<!-- Editorial Location Section (Map Integrated) -->
-		<section class="bg-white py-32 overflow-hidden border-t border-primary/5">
+		<section
+			class="bg-white py-32 overflow-hidden border-t border-primary/5"
+		>
 			<div class="editorial-container">
 				<div class="grid lg:grid-cols-12 gap-20 items-center">
 					<!-- Map Column -->
 					<div class="lg:col-span-7 reveal-on-scroll">
 						<div class="relative group">
 							<div
-								class="aspect-[16/10] overflow-hidden bg-secondary relative transition-transform duration-1000 group-hover:-translate-y-1 group-hover:translate-x-1 shadow-2xl"
+								class="aspect-16/10 overflow-hidden bg-secondary relative transition-transform duration-1000 group-hover:-translate-y-1 group-hover:translate-x-1 shadow-2xl"
 							>
 								<div
 									class="absolute inset-0 bg-primary/10 group-hover:bg-primary/0 transition-all duration-1000 z-10 pointer-events-none"
@@ -207,17 +268,20 @@ import Button from "../components/base/Button.astro";
 							class="text-primary/40 font-sans text-xs uppercase tracking-[0.4em] mb-6 block"
 							>Encuéntranos</span
 						>
-						<h2 class="text-primary font-heading text-6xl leading-none mb-6">
-							Corazón de <br /><span class="italic font-normal ml-8"
-								>Logroño</span
+						<h2
+							class="text-primary font-heading text-6xl leading-none mb-6"
+						>
+							Corazón de <br /><span
+								class="italic font-normal ml-8">Logroño</span
 							>
 						</h2>
 
 						<p
 							class="text-primary/60 font-sans text-sm leading-relaxed mb-10 max-w-sm"
 						>
-							Ubicados en el histórico edificio de 1821, somos un refugio de
-							sabor riojano a pocos pasos de la emblemática Calle Laurel.
+							Ubicados en el histórico edificio de 1821, somos un
+							refugio de sabor riojano a pocos pasos de la
+							emblemática Calle Laurel.
 						</p>
 
 						<div class="space-y-10">
@@ -227,7 +291,9 @@ import Button from "../components/base/Button.astro";
 								>
 									Dirección
 								</h3>
-								<p class="text-primary/80 font-sans text-xl leading-relaxed">
+								<p
+									class="text-primary/80 font-sans text-xl leading-relaxed"
+								>
 									C. Carnicerías, 3, bajo<br />
 									26001 Logroño, La Rioja
 								</p>
@@ -250,7 +316,7 @@ import Button from "../components/base/Button.astro";
 
 						<div class="mt-16">
 							<a
-								href="https://maps.app.goo.gl/placeholder"
+								href="https://www.google.com/maps/search/La+Chata+1821+Logro%C3%B1o+Calle+Carnicer%C3%ADas,+3"
 								target="_blank"
 								class="inline-block bg-primary text-secondary px-10 py-4 font-sans font-bold text-xs tracking-widest transition-all hover:bg-primary-dark shadow-xl hover:-translate-y-1 active:scale-95"
 							>

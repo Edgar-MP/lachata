@@ -1,84 +1,149 @@
 ---
+import Logo from "../base/Logo.astro";
 ---
 
-<section class="relative min-h-screen flex flex-col justify-center overflow-hidden bg-secondary">
-  <!-- Subtle Background Glow -->
-  <div class="absolute top-1/4 -left-20 w-[40rem] h-[40rem] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
-  <div class="absolute bottom-1/4 -right-20 w-[30rem] h-[30rem] bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+<section
+	class="relative min-h-screen flex flex-col justify-center overflow-hidden bg-secondary"
+>
+	<!-- Subtle Background Glow -->
+	<div
+		class="absolute top-1/4 -left-20 w-[40rem] h-[40rem] bg-primary/5 rounded-full blur-[120px] pointer-events-none"
+	>
+	</div>
+	<div
+		class="absolute bottom-1/4 -right-20 w-[30rem] h-[30rem] bg-primary/5 rounded-full blur-[100px] pointer-events-none"
+	>
+	</div>
 
-  <div class="editorial-container relative z-10 py-32 mt-20">
-    <div class="grid lg:grid-cols-12 gap-12 items-end relative">
-      
-      <!-- Big Typography Header -->
-      <div class="lg:col-span-9 relative">
-        <div class="overflow-hidden mb-6">
-          <span class="block text-primary font-sans text-[10px] md:text-xs uppercase tracking-[0.5em] animate-fade-up" style="animation-delay: 0.1s">Restaurante Riojano &mdash; Patrimonio de Sabor</span>
-        </div>
-        
-        <h1 class="text-primary font-heading leading-[0.85] mb-12 relative">
-          <span class="block text-[clamp(4.5rem,15vw,13rem)] animate-fade-up" style="animation-delay: 0.3s">Tradición</span>
-          <span class="block text-[clamp(4rem,13vw,11rem)] italic font-normal ml-[0.5em] md:ml-[1.2em] text-primary/80 animate-fade-up" style="animation-delay: 0.5s">
-            viva <span class="not-italic text-[0.3em] align-middle ml-4 opacity-30 mt-[-1em] hidden md:inline-block tracking-normal font-sans font-light border border-primary/20 rounded-full px-4 py-1">DESDE 1821</span>
-          </span>
-        </h1>
+	<div class="editorial-container relative z-10 py-32 mt-20">
+		<div class="grid lg:grid-cols-12 gap-12 items-end relative">
+			<!-- Big Typography Header -->
+			<div class="lg:col-span-9 relative">
+				<div class="overflow-hidden mb-6">
+					<span
+						class="block text-primary font-sans text-[10px] md:text-xs uppercase tracking-[0.5em] animate-fade-up"
+						style="animation-delay: 0.1s"
+						>Restaurante Riojano &mdash; Patrimonio de Sabor</span
+					>
+				</div>
 
-        <!-- Decorative Floating Seal -->
-        <div class="absolute -top-12 right-1/4 w-32 h-32 hidden md:flex items-center justify-center animate-float pointer-events-none">
-          <svg viewBox="0 0 100 100" class="w-full h-full text-primary/10 fill-current opacity-70 animate-[spin_20s_linear_infinite]">
-            <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
-            <text font-size="9" font-family="serif" letter-spacing="3" font-weight="bold">
-              <textPath href="#circlePath">
-                LA CHATA 1821 &bull; TEMPLO DE LA COCINA RIOJANA &bull;
-              </textPath>
-            </text>
-          </svg>
-          <div class="absolute inset-0 flex items-center justify-center">
-            <span class="text-primary/20 font-heading text-lg">1821</span>
-          </div>
-        </div>
-      </div>
+				<h1 class="text-primary font-heading leading-[0.85] mb-12 relative">
+					<span
+						class="block text-[clamp(4.5rem,15vw,13rem)] animate-fade-up"
+						style="animation-delay: 0.3s">Tradición</span
+					>
+					<span
+						class="block text-[clamp(4rem,13vw,11rem)] italic font-normal ml-[0.5em] md:ml-[1.2em] text-primary/80 animate-fade-up"
+						style="animation-delay: 0.5s"
+					>
+						viva <span
+							class="not-italic text-[0.3em] align-middle ml-4 opacity-30 mt-[-1em] hidden md:inline-block tracking-normal font-sans font-light border border-primary/20 rounded-full px-4 py-1"
+							>DESDE 1821</span
+						>
+					</span>
+				</h1>
 
-      <!-- Hero Image (Asymmetric & Layered) -->
-      <div class="lg:col-span-3 lg:col-start-10 animate-fade-up" style="animation-delay: 0.7s">
-         <div class="relative group">
-            <div class="absolute -inset-6 border border-primary/10 -z-10 transition-all group-hover:-inset-8 duration-700"></div>
-            <div class="overflow-hidden bg-secondary">
-              <img 
-                src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop" 
-                alt="Interior La Chata" 
-                class="w-full aspect-[3/4] object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-[2s] hover:scale-110"
-              />
-            </div>
-            <div class="absolute -bottom-10 -left-10 w-24 h-24 bg-secondary flex items-center justify-center border border-primary/10 shadow-lg hidden lg:flex group-hover:-translate-y-2 transition-transform duration-700">
-               <span class="text-primary/40 font-heading text-3xl italic">LC</span>
-            </div>
-         </div>
-      </div>
-    </div>
-  </div>
+				<!-- Decorative Floating Seal -->
+				<div
+					class="absolute -top-12 right-1/4 w-32 h-32 hidden md:flex items-center justify-center animate-float pointer-events-none"
+				>
+					<svg
+						viewBox="0 0 100 100"
+						class="w-full h-full text-primary/10 fill-current opacity-70 animate-[spin_20s_linear_infinite]"
+					>
+						<path
+							id="circlePath"
+							d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
+							fill="none"></path>
+						<text
+							font-size="9"
+							font-family="serif"
+							letter-spacing="3"
+							font-weight="bold"
+						>
+							<textPath href="#circlePath">
+								LA CHATA 1821 &bull; TEMPLO DE LA COCINA RIOJANA &bull;
+							</textPath>
+						</text>
+					</svg>
+					<div class="absolute inset-0 flex items-center justify-center">
+						<span class="text-primary/20 font-heading text-lg">1821</span>
+					</div>
+				</div>
+			</div>
 
-  <!-- Bottom Bar (Refined) -->
-  <div class="editorial-container mt-auto pb-12 w-full flex flex-col md:flex-row justify-between items-end gap-12 border-t border-primary/5 pt-12 animate-fade-up" style="animation-delay: 1s">
-    <div class="max-w-md space-y-6">
-      <p class="text-primary/70 font-sans leading-relaxed text-sm lg:text-base">
-        Recupere los matices de una cocina honesta en el histórico enclave de Logroño. Allí donde el tiempo se detiene ante el aroma de unas <span class="text-primary italic font-serif">chuletillas de toda la vida</span>.
-      </p>
-      <div class="flex gap-4">
-        <a href="/reservas" class="inline-block bg-primary text-white px-10 py-4 font-sans font-bold text-[10px] tracking-[0.2em] uppercase transition-all hover:bg-primary-dark shadow-2xl hover:-translate-y-1 active:scale-95">
-          RESERVAR MESA
-        </a>
-      </div>
-    </div>
-    
-    <div class="flex gap-16 text-right">
-      <div class="flex flex-col gap-2">
-        <span class="text-primary/30 font-sans text-[9px] uppercase tracking-[0.4em]">Ubicación</span>
-        <span class="text-primary font-sans text-xs uppercase tracking-widest font-bold">C. Carnicerías 3<br/>Logroño</span>
-      </div>
-      <div class="flex flex-col gap-2">
-        <span class="text-primary/30 font-sans text-[9px] uppercase tracking-[0.4em]">Horario</span>
-        <span class="text-primary font-sans text-xs uppercase tracking-widest font-bold italic">Lunch M-D</span>
-      </div>
-    </div>
-  </div>
+			<!-- Hero Image (Asymmetric & Layered) -->
+			<div
+				class="lg:col-span-3 lg:col-start-10 animate-fade-up"
+				style="animation-delay: 0.7s"
+			>
+				<div class="relative group">
+					<div
+						class="absolute -inset-6 border border-primary/10 -z-10 transition-all group-hover:-inset-8 duration-700"
+					>
+					</div>
+					<div class="overflow-hidden bg-secondary">
+						<img
+							src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop"
+							alt="Interior La Chata"
+							class="w-full aspect-[3/4] object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-[2s] hover:scale-110"
+						/>
+					</div>
+					<!-- Branded Logo Badge instead of text -->
+					<div
+						class="absolute -bottom-10 -left-10 w-32 h-20 bg-secondary flex items-center justify-center border border-primary/10 shadow-lg hidden lg:flex group-hover:-translate-y-2 transition-transform duration-700 px-4"
+					>
+						<Logo class="w-full h-auto" color="#794223" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bottom Bar (Refined) -->
+	<div
+		class="editorial-container mt-auto pb-12 w-full flex flex-col md:flex-row justify-between items-end gap-12 border-t border-primary/5 pt-12 animate-fade-up"
+		style="animation-delay: 1s"
+	>
+		<div class="max-w-md space-y-6">
+			<p class="text-primary/70 font-sans leading-relaxed text-sm lg:text-base">
+				Recupere los matices de una cocina honesta en el histórico enclave de
+				Logroño. Allí donde el tiempo se detiene ante el aroma de unas <span
+					class="text-primary italic font-serif"
+					>chuletillas de toda la vida</span
+				>.
+			</p>
+			<div class="flex gap-4">
+				<a
+					href="/reservas"
+					class="inline-block bg-primary text-white px-10 py-4 font-sans font-bold text-[10px] tracking-[0.2em] uppercase transition-all hover:bg-primary-dark shadow-2xl hover:-translate-y-1 active:scale-95"
+				>
+					RESERVAR MESA
+				</a>
+			</div>
+		</div>
+
+		<div class="flex gap-16 text-right">
+			<div class="flex flex-col gap-2">
+				<span
+					class="text-primary/30 font-sans text-[9px] uppercase tracking-[0.4em]"
+					>Ubicación</span
+				>
+				<span
+					class="text-primary font-sans text-xs uppercase tracking-widest font-bold"
+					>C. Carnicerías 3<br />Logroño</span
+				>
+			</div>
+			<div class="flex flex-col gap-2">
+				<span
+					class="text-primary/30 font-sans text-[9px] uppercase tracking-[0.4em]"
+					>Horario</span
+				>
+				<span
+					class="text-primary font-sans text-xs uppercase tracking-widest font-bold italic"
+					>Lunch M-D</span
+				>
+			</div>
+		</div>
+	</div>
 </section>
