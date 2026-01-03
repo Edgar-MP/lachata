@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Button from '../components/base/Button.astro';
+
+const sections = [
+  {
+    title: "Entrantes",
+    items: [
+      { name: "Patatas con Chorizo", price: "€ -", desc: "Clásico riojano con nuestro toque." },
+      { name: "Caparrones", price: "€ -", desc: "De profundidad, como manda la tradición." },
+      { name: "Verduras de Temporada", price: "€ -", desc: "Selección del mercado diario." }
+    ]
+  },
+  {
+    title: "Carnes y Pescados",
+    items: [
+      { name: "Chuletillas de Cordero", price: "€ -", desc: "Al sarmiento (según disponibilidad)." },
+      { name: "Pescado del Mercado", price: "€ -", desc: "Fresco del día, consulte al camarero." },
+      { name: "Solomillo de Ternera", price: "€ -", desc: "Con guarnición de la casa." }
+    ]
+  },
+  {
+    title: "Postres",
+    items: [
+      { name: "Torrija Caramelizada", price: "€ -", desc: "Con helado de vainilla." },
+      { name: "Queso con Membrillo", price: "€ -", desc: "Tradición pura." }
+    ]
+  }
+];
+---
+
+<Layout title="Nuestra Carta | La Chata 1821">
+  <Header />
+  <main class="pt-20">
+    <div class="bg-stone-100 py-16 text-center px-4">
+      <h1 class="font-heading text-6xl text-primary mb-4">Nuestra Carta</h1>
+      <p class="text-text/70 italic font-serif">"Sabores de siempre, como nunca."</p>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 py-16 space-y-16">
+      {sections.map((section) => (
+        <section>
+          <h2 class="text-3xl font-heading text-center text-accent mb-8 pb-2 border-b border-accent/20 inline-block w-full">{section.title}</h2>
+          <div class="space-y-6">
+            {section.items.map((item) => (
+              <div class="flex justify-between items-baseline group relative overflow-hidden">
+                <div class="w-full relative z-10 bg-background pr-4">
+                  <h3 class="text-xl font-medium text-primary group-hover:text-accent transition-colors display-inline">{item.name}</h3>
+                  <p class="text-stone-500 text-sm italic">{item.desc}</p>
+                </div>
+                <div class="absolute bottom-2 left-0 w-full border-b border-dotted border-stone-300 -z-0"></div>
+                <span class="text-lg font-bold text-primary pl-4 bg-background relative z-10">{item.price}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+    
+    <div class="text-center pb-20">
+      <Button href="/reservas">Reservar Mesa para Probarlo</Button>
+    </div>
+  </main>
+  <Footer />
+</Layout>

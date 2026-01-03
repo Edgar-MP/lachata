@@ -1,0 +1,59 @@
+---
+import Logo from '../base/Logo.astro';
+---
+
+<footer class="bg-primary-dark text-secondary py-24">
+  <div class="editorial-container">
+    <div class="grid md:grid-cols-4 gap-16 md:gap-8">
+      
+      <!-- Brand & Social -->
+      <div class="md:col-span-2 flex flex-col justify-between space-y-12">
+        <div>
+          <Logo class="h-10 w-auto mb-8" color="white" />
+          <p class="max-w-xs text-secondary/60 font-sans text-sm leading-relaxed">
+            Un templo de la cocina tradicional riojana. Desde 1821, alimentando el alma de Logroño con honestidad y producto de cercanía.
+          </p>
+        </div>
+        
+        <div class="flex space-x-6">
+          <a href="https://www.instagram.com/lachata1821/" target="_blank" class="text-secondary/40 hover:text-white transition-colors text-xs uppercase tracking-widest border-b border-transparent hover:border-white">Instagram</a>
+          <a href="https://www.facebook.com/p/Restaurante-la-chata-61555339035284" target="_blank" class="text-secondary/40 hover:text-white transition-colors text-xs uppercase tracking-widest border-b border-transparent hover:border-white">Facebook</a>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="flex flex-col space-y-8">
+        <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold text-secondary/30">Navegación</h4>
+        <nav class="flex flex-col space-y-4 font-sans text-sm">
+          <a href="/carta" class="hover:text-white transition-colors">La Carta</a>
+          <a href="/nosotros" class="hover:text-white transition-colors">La Herencia</a>
+          <a href="/galeria" class="hover:text-white transition-colors">Galería</a>
+          <a href="/contacto" class="hover:text-white transition-colors">Ubicación</a>
+        </nav>
+      </div>
+
+      <!-- Contact -->
+      <div class="flex flex-col space-y-8">
+        <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold text-secondary/30">Contacto</h4>
+        <div class="flex flex-col space-y-4 font-sans text-sm">
+          <p class="text-white">C. Carnicerías, 3<br/>26001 Logroño</p>
+          <a href="tel:+34667286766" class="hover:text-white transition-colors font-bold">+34 667 28 67 66</a>
+          <div class="pt-4 flex flex-col gap-1">
+             <span class="text-[9px] uppercase tracking-widest opacity-40">Horario de Comidas</span>
+             <p class="text-[11px] opacity-80 uppercase">M-J: 13:30-15:30</p>
+             <p class="text-[11px] opacity-80 uppercase">V-D: 13:30-16:00</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between gap-4 text-[10px] uppercase tracking-widest text-secondary/30 font-sans">
+      <p>&copy; {new Date().getFullYear()} La Chata 1821</p>
+      <div class="flex gap-8">
+        <a href="#" class="hover:text-white">Privacidad</a>
+        <a href="#" class="hover:text-white">Aviso Legal</a>
+      </div>
+    </div>
+  </div>
+</footer>

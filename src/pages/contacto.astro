@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Logo from '../components/base/Logo.astro';
+---
+
+<Layout title="Contacto | La Chata 1821">
+  <Header />
+  <main class="pt-20">
+    <div class="grid md:grid-cols-2 min-h-[80vh]">
+        <!-- Info Side -->
+        <div class="bg-primary text-white flex flex-col justify-center p-12 lg:p-20">
+            <Logo class="w-32 mb-12 text-secondary" />
+            
+            <h1 class="font-heading text-4xl mb-8">Contacto</h1>
+            
+            <div class="space-y-8 font-light text-lg">
+                <div>
+                   <h3 class="font-bold text-secondary uppercase tracking-widest text-sm mb-2">Visítanos</h3>
+                   <p>C. Carnicerías, 3, bajo</p>
+                   <p>26001 Logroño, La Rioja</p>
+                </div>
+                
+                <div>
+                   <h3 class="font-bold text-secondary uppercase tracking-widest text-sm mb-2">Llámanos</h3>
+                   <p><a href="tel:+34667286766" class="hover:text-secondary underline decoration-1 underline-offset-4">+34 667 28 67 66</a></p>
+                </div>
+                
+                <div>
+                   <h3 class="font-bold text-secondary uppercase tracking-widest text-sm mb-2">Email</h3>
+                   <p><a href="mailto:lachata1821@gmail.com" class="hover:text-secondary underline decoration-1 underline-offset-4">lachata1821@gmail.com</a></p>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-secondary uppercase tracking-widest text-sm mb-2">Horario</h3>
+                    <div class="grid grid-cols-[100px_1fr] gap-2">
+                        <span class="opacity-70">Lunes</span>
+                        <span>Cerrado</span>
+                        
+                        <span class="opacity-70">M-J</span>
+                        <span>13:30 - 15:30</span>
+                        
+                        <span class="opacity-70">V-S-D</span>
+                        <span>13:30 - 16:00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Map Side -->
+        <div class="bg-stone-200 h-96 md:h-auto relative">
+             <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2979.997274474776!2d-2.4485549232924483!3d42.468249971168925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd507a2d427d1a29%3A0xc6360c7923762699!2sC.%20Carnicer%C3%ADas%2C%203%2C%2026001%20Logro%C3%B1o%2C%20La%20Rioja!5e0!3m2!1ses!2ses!4v1709485000000!5m2!1ses!2ses" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                class="absolute inset-0 grayscale hover:grayscale-0 transition-all duration-500"
+            >
+            </iframe>
+        </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

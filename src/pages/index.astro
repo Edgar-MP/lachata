@@ -1,11 +1,138 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Hero from '../components/sections/Hero.astro';
+import ReservationWidget from '../components/sections/ReservationWidget.astro';
+import Button from '../components/base/Button.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="La Chata 1821 | Templo de la Cocina Riojana">
+  <Header />
+  
+  <main class="overflow-x-hidden">
+    <Hero />
+    
+    <!-- Editorial About Section -->
+    <section class="py-32 bg-white relative">
+      <div class="editorial-container">
+        <div class="grid lg:grid-cols-2 gap-24 items-center">
+          <div class="relative max-w-lg reveal-on-scroll">
+            <span class="text-primary/40 font-sans text-xs uppercase tracking-[0.4em] mb-6 block">La Herencia</span>
+            <h2 class="text-primary font-heading text-6xl md:text-7xl leading-none mb-10">
+              Corazón <br/><span class="italic font-normal ml-8">Riojano</span>
+            </h2>
+            <div class="space-y-8 text-primary/80 font-sans leading-relaxed text-lg">
+              <p>
+                La Chata vuelve a ser uno de esos rincones -al principio un tanto secretos- a los que acudir para resguardarse del frío al calor de unas buenas patatas con chorizo o unos caparrones de profundidad.
+              </p>
+              <p>
+                Tras un lustro de silencio, este espacio que ha alimentado a Logroño desde 1821 vuelve con una nueva dirección, pero con el mismo respeto sagrado por la tradición.
+              </p>
+            </div>
+            
+            <div class="mt-12">
+               <a href="/nosotros" class="group flex items-center gap-4 text-primary font-sans text-xs uppercase tracking-[0.3em] font-bold">
+                 Descubra nuestra historia
+                 <span class="w-12 h-[1px] bg-primary group-hover:w-20 transition-all duration-500"></span>
+               </a>
+            </div>
+          </div>
+          
+          <div class="relative reveal-on-scroll" style="transition-delay: 0.2s">
+            <div class="aspect-[4/5] overflow-hidden bg-secondary relative">
+               <img 
+                 src="https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?q=80&w=2070&auto=format&fit=crop" 
+                 alt="Producto riojano" 
+                 class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-[2s]"
+               />
+               <!-- Decorative floating text -->
+               <div class="absolute bottom-12 -right-12 lg:-right-24 hidden lg:block">
+                  <span class="text-[clamp(2rem,6vw,5rem)] font-heading text-primary/10 whitespace-nowrap select-none">PRODUCTO DE MERCADO</span>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full-impact Quote Section -->
+    <section class="py-40 bg-secondary/30 text-center border-y border-primary/5">
+       <div class="editorial-container max-w-4xl">
+          <blockquote class="text-primary/90 font-heading text-4xl md:text-6xl leading-[1.1] mb-12">
+            "Un templo de <span class="italic font-normal">cocina tradicional</span> donde el tiempo se detiene ante unas chuletillas de toda la vida."
+          </blockquote>
+          <span class="text-primary/40 font-sans text-[10px] uppercase tracking-[0.6em]">La Chata 1821</span>
+       </div>
+    </section>
+
+    <!-- Discrete Menu Highlight -->
+    <section class="py-32 bg-white">
+      <div class="editorial-container">
+        <div class="flex justify-between items-end mb-20">
+          <div>
+            <span class="text-primary/40 font-sans text-xs uppercase tracking-[0.4em] mb-4 block text-center md:text-left">Selección</span>
+            <h2 class="text-primary font-heading text-6xl leading-none text-center md:text-left">La Carta</h2>
+          </div>
+          <a href="/carta" class="hidden md:block text-primary/40 hover:text-primary transition-colors font-sans text-xs uppercase tracking-widest border-b border-primary/20 pb-1">Ver carta completa</a>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-primary/10">
+          {[
+            { title: "Patatas con Chorizo", desc: "El alma de la Rioja en un plato hondo." },
+            { title: "Caparrones", desc: "De profundidad, espesos y reconfortantes." },
+            { title: "Chuletillas", desc: "Toda la vida servidas al punto exacto." }
+          ].map((item, idx) => (
+            <div class={`p-12 group hover:bg-primary transition-colors duration-700 border-b border-primary/10 ${idx < 2 ? 'md:border-r' : ''}`}>
+              <span class="text-primary/20 group-hover:text-white/20 font-heading text-4xl block mb-6 transition-colors">0{idx + 1}</span>
+              <h3 class="text-primary group-hover:text-white font-heading text-3xl mb-4 transition-colors">{item.title}</h3>
+              <p class="text-primary/60 group-hover:text-white/60 font-sans text-sm leading-relaxed transition-colors">
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+        
+        <div class="mt-12 md:hidden text-center">
+           <a href="/carta" class="text-primary font-sans text-xs uppercase tracking-widest border-b border-primary/20 pb-1">Ver carta completa</a>
+        </div>
+      </div>
+    </section>
+
+    <ReservationWidget />
+
+    <!-- Discrete Map Footer -->
+    <section class="h-[60vh] bg-secondary grayscale hover:grayscale-0 transition-all duration-[1s] relative group overflow-hidden">
+       <div class="absolute inset-0 bg-primary/10 group-hover:bg-primary/0 transition-all duration-700 z-10 pointer-events-none"></div>
+       <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2979.997274474776!2d-2.4485549232924483!3d42.468249971168925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd507a2d427d1a29%3A0xc6360c7923762699!2sC.%20Carnicer%C3%ADas%2C%203%2C%2026001%20Logro%C3%B1o%2C%20La%20Rioja!5e0!3m2!1ses!2ses!4v1709485000000!5m2!1ses!2ses" 
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </section>
+
+  </main>
+  
+  <Footer />
 </Layout>
+
+<script is:inline>
+  // Simple Reveal Animation
+  const observerOptions = {
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+</script>
