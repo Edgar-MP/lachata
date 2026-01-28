@@ -16,8 +16,8 @@
 				La Chata 1821
 			</h2>
 			<p class="text-secondary/60 font-sans text-sm leading-relaxed">
-				Esta es una versión en desarrollo. Por favor, introduzca el
-				código de acceso para continuar.
+				Esta es una versión en desarrollo. Por favor, introduzca el código de
+				acceso para continuar.
 			</p>
 		</div>
 
@@ -58,14 +58,12 @@
 <script>
 	function initAccessGate() {
 		const gate = document.getElementById("access-gate");
-		const input = document.getElementById(
-			"access-code",
-		) as HTMLInputElement;
+		const input = document.getElementById("access-code") as HTMLInputElement;
 		const button = document.getElementById("check-access");
 		const error = document.getElementById("access-error");
 
 		// THE CODE (A more secure random code for private review)
-		const SECRET_CODE = "K8P2R5";
+		const SECRET_CODE = "chata";
 
 		if (!gate) return;
 

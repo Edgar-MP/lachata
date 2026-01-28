@@ -12,7 +12,7 @@
   --font-sans: "Inter", sans-serif;
   --font-heading: "Playfair Display", serif;
 
-  --animate-fade-up: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-float: float 6s ease-in-out infinite;
 }
 
@@ -84,7 +84,7 @@
   }
 
   .reveal-on-scroll {
-    @apply opacity-0 transition-all duration-1000 translate-y-8;
+    @apply opacity-0 transition-all duration-500 translate-y-4;
   }
 
   .reveal-on-scroll.visible {
