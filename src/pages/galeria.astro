@@ -2,46 +2,55 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+import { Picture } from "astro:assets";
+import restImgOne from "../assets/restaurante/IMG_0942.webp";
+import restImgTwo from "../assets/restaurante/IMG_0964.webp";
+import restImgThree from "../assets/restaurante/IMG_0987.webp";
+import restImgFour from "../assets/restaurante/IMG_0992.webp";
+import pulpoImg from "../assets/platos/pulpo.webp";
+import patatasImg from "../assets/platos/patatas-riojana.webp";
+import alubiasImg from "../assets/platos/alubias-blancas.webp";
+import tablaQuesoImg from "../assets/platos/tabla-queso.webp";
 
 const images = [
   { 
-    src: "https://images.unsplash.com/photo-1514361892635-6b07e31e75f9?q=80&w=2070&auto=format&fit=crop", 
-    alt: "Nuestra bodega de Rioja",
+    src: restImgOne, 
+    alt: "Sala principal del restaurante",
     aspect: "aspect-[3/4]"
   },
   { 
-    src: "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop", 
+    src: restImgTwo, 
     alt: "Ambiente tradicional",
     aspect: "aspect-square"
   },
   { 
-    src: "https://images.unsplash.com/photo-1547928576-a4a33237bec3?q=80&w=2070&auto=format&fit=crop", 
-    alt: "Patatas con chorizo",
+    src: patatasImg, 
+    alt: "Patatas a la riojana",
     aspect: "aspect-video"
   },
   { 
-    src: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?q=80&w=2070&auto=format&fit=crop", 
-    alt: "Chuletillas al sarmiento",
+    src: pulpoImg, 
+    alt: "Pulpo a la brasa",
     aspect: "aspect-[4/5]"
   },
   { 
-    src: "https://images.unsplash.com/photo-1541414779316-956a5084c0d4?q=80&w=1968&auto=format&fit=crop", 
-    alt: "Producto local",
+    src: alubiasImg, 
+    alt: "Alubias blancas",
     aspect: "aspect-square"
   },
   { 
-    src: "https://images.unsplash.com/photo-1543412849-fb2526095111?q=80&w=1974&auto=format&fit=crop", 
+    src: restImgThree, 
     alt: "Detalle del restaurante",
     aspect: "aspect-[3/4]"
   },
   { 
-    src: "https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?q=80&w=2070&auto=format&fit=crop", 
+    src: restImgFour, 
     alt: "Mesa preparada",
     aspect: "aspect-video"
   },
   { 
-    src: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=2070&auto=format&fit=crop", 
-    alt: "Vino y tradición",
+    src: tablaQuesoImg, 
+    alt: "Tabla de queso Cameros",
     aspect: "aspect-square"
   }
 ];
@@ -73,9 +82,14 @@ const images = [
 						>
 							<div class="group relative overflow-hidden bg-white">
 								<div class={`relative ${image.aspect} overflow-hidden`}>
-									<img 
-										src={image.src} 
-										alt={image.alt} 
+									<Picture
+										src={image.src}
+										alt={image.alt}
+										formats={["avif", "webp"]}
+										fallbackFormat="webp"
+										widths={[600, 1000]}
+										sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+										pictureAttributes={{ class: "w-full h-full" }}
 										class="w-full h-full object-cover grayscale-30 group-hover:grayscale-0 transition-all duration-[2s] group-hover:scale-110"
 									/>
 									<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>

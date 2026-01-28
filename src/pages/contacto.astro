@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/layout/Header.astro";
 import Footer from "../components/layout/Footer.astro";
+import { Picture } from "astro:assets";
+import ambienteImg from "../assets/restaurante/IMG_0991.webp";
 ---
 
 <Layout title="Contacto | La Chata 1821">
@@ -38,9 +40,7 @@ import Footer from "../components/layout/Footer.astro";
 							>
 								El espacio
 							</h3>
-							<p
-								class="text-primary font-heading text-2xl leading-relaxed"
-							>
+							<p class="text-primary font-heading text-2xl leading-relaxed">
 								Calle Carnicerías, 3, bajo<br />
 								26001 Logroño, La Rioja
 							</p>
@@ -52,9 +52,7 @@ import Footer from "../components/layout/Footer.astro";
 							>
 								Hablemos
 							</h3>
-							<p
-								class="text-primary font-heading text-2xl leading-relaxed"
-							>
+							<p class="text-primary font-heading text-2xl leading-relaxed">
 								T. +34 941 25 12 96<br />
 								E. hola@lachata1821.com
 							</p>
@@ -67,21 +65,13 @@ import Footer from "../components/layout/Footer.astro";
 								Horarios
 							</h3>
 							<div class="space-y-4">
-								<p
-									class="text-primary font-sans text-lg leading-relaxed"
-								>
+								<p class="text-primary font-sans text-lg leading-relaxed">
 									Martes a Jueves<br />
-									<span class="text-primary/60"
-										>13:30 – 15:30</span
-									>
+									<span class="text-primary/60">13:30 – 15:30</span>
 								</p>
-								<p
-									class="text-primary font-sans text-lg leading-relaxed"
-								>
+								<p class="text-primary font-sans text-lg leading-relaxed">
 									Viernes a Domingo<br />
-									<span class="text-primary/60"
-										>13:30 – 16:00</span
-									>
+									<span class="text-primary/60">13:30 – 16:00</span>
 								</p>
 							</div>
 						</div>
@@ -93,9 +83,7 @@ import Footer from "../components/layout/Footer.astro";
 						style="transition-delay: 0.2s"
 					>
 						<div class="relative group">
-							<div
-								class="aspect-video overflow-hidden bg-white shadow-2xl"
-							>
+							<div class="aspect-video overflow-hidden bg-white shadow-2xl">
 								<iframe
 									src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2979.997274474776!2d-2.4485549232924483!3d42.468249971168925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd507a2d427d1a29%3A0xc6360c7923762699!2sC.%20Carnicer%C3%ADas%2C%203%2C%2026001%20Logro%C3%B1o%2C%20La%20Rioja!5e0!3m2!1ses!2ses!4v1709485000000!5m2!1ses!2ses"
 									width="100%"
@@ -131,9 +119,14 @@ import Footer from "../components/layout/Footer.astro";
 		<section class="pb-32 reveal-on-scroll">
 			<div class="editorial-container">
 				<div class="aspect-21/9 overflow-hidden shadow-2xl">
-					<img
-						src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop"
+					<Picture
+						src={ambienteImg}
 						alt="Interior del restaurante"
+						formats={["avif", "webp"]}
+						fallbackFormat="webp"
+						widths={[1200, 2000]}
+						sizes="100vw"
+						pictureAttributes={{ class: "w-full h-full" }}
 						class="w-full h-full object-cover grayscale-20 hover:grayscale-0 transition-all duration-[2.5s]"
 					/>
 				</div>

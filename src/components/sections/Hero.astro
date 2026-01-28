@@ -1,5 +1,7 @@
 ---
 import Logo from "../base/Logo.astro";
+import { Picture } from "astro:assets";
+import principal from "../../assets/principal.webp";
 ---
 
 <section
@@ -83,9 +85,14 @@ import Logo from "../base/Logo.astro";
 					>
 					</div>
 					<div class="overflow-hidden bg-secondary">
-						<img
-							src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop"
-							alt="Interior La Chata"
+						<Picture
+							src={principal}
+							alt="Plato principal de La Chata"
+							formats={["avif", "webp"]}
+							fallbackFormat="webp"
+							widths={[500, 800]}
+							sizes="(min-width: 1024px) 25vw, 60vw"
+							pictureAttributes={{ class: "w-full" }}
 							class="w-full aspect-[3/4] object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-[2s] hover:scale-110"
 						/>
 					</div>

@@ -5,6 +5,11 @@ import Footer from "../components/layout/Footer.astro";
 import Hero from "../components/sections/Hero.astro";
 import ReservationWidget from "../components/sections/ReservationWidget.astro";
 import Button from "../components/base/Button.astro";
+import { Picture } from "astro:assets";
+import corazonRiojano from "../assets/corazon-riojano.webp";
+import patatasRiojana from "../assets/patatas-riojana.webp";
+import alubiasBlancas from "../assets/alubias-blancas.webp";
+import pulpo from "../assets/pulpo.webp";
 ---
 
 <Layout title="La Chata 1821 | Templo de la Cocina Riojana">
@@ -67,9 +72,14 @@ import Button from "../components/base/Button.astro";
 						<div
 							class="aspect-[4/5] overflow-hidden bg-secondary relative"
 						>
-							<img
-								src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=2070&auto=format&fit=crop"
-								alt="Viñedos y vino de Rioja"
+							<Picture
+								src={corazonRiojano}
+								alt="Corazón riojano"
+								formats={["avif", "webp"]}
+								fallbackFormat="webp"
+								widths={[800, 1200]}
+								sizes="(min-width: 1024px) 50vw, 100vw"
+								pictureAttributes={{ class: "w-full h-full" }}
 								class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-[2s]"
 							/>
 							<!-- Decorative floating text -->
@@ -145,27 +155,27 @@ import Button from "../components/base/Button.astro";
 				</div>
 
 				<div class="space-y-32">
-					{
-						[
 							{
-								title: "Patatas con Chorizo",
-								desc: "El alma de la Rioja en un plato hondo. Elaboradas a fuego lento, con el pimentón justo y el cariño de siempre.",
-								image: "https://images.unsplash.com/photo-1547928576-a4a33237bec3?q=80&w=2070&auto=format&fit=crop",
-								align: "left",
-							},
-							{
-								title: "Caparrones de Anguiano",
-								desc: "De los de profundidad, espesos y reconfortantes. Acompañados de sus sacramentos: chorizo, tocino y guindilla.",
-								image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?q=80&w=1913&auto=format&fit=crop",
-								align: "right",
-							},
-							{
-								title: "Chuletillas al Sarmiento",
-								desc: "Toda la vida servidas al punto exacto. El aroma del sarmiento fundido con la mejor carne de nuestra tierra.",
-								image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?q=80&w=2070&auto=format&fit=crop",
-								align: "left",
-							},
-						].map((item, idx) => (
+								[
+									{
+										title: "Patatas a la Riojana",
+										desc: "Guiso clásico y reconfortante, con chorizo y pimentón, servido humeante como manda la tradición.",
+										image: patatasRiojana,
+										align: "left",
+									},
+									{
+										title: "Alubias Blancas",
+										desc: "Cocidas a fuego lento, melosas y sabrosas, con su punto exacto de caldo y cariño riojano.",
+										image: alubiasBlancas,
+										align: "right",
+									},
+									{
+										title: "Pulpo",
+										desc: "Pulpo a la brasa con parmentier, AOVE y pimentón de la Vera.",
+										image: pulpo,
+										align: "left",
+									},
+								].map((item, idx) => (
 							<article
 								class={`grid lg:grid-cols-12 gap-12 items-center reveal-on-scroll`}
 								style={`transition-delay: ${idx * 0.1}s`}
@@ -175,9 +185,14 @@ import Button from "../components/base/Button.astro";
 								>
 									<div class="relative group overflow-hidden">
 										<div class="aspect-video overflow-hidden bg-secondary">
-											<img
+											<Picture
 												src={item.image}
 												alt={item.title}
+												formats={["avif", "webp"]}
+												fallbackFormat="webp"
+												widths={[900, 1400]}
+												sizes="(min-width: 1024px) 60vw, 100vw"
+												pictureAttributes={{ class: "w-full h-full" }}
 												class="w-full h-full object-cover grayscale-20 group-hover:grayscale-0 transition-all duration-[2s] group-hover:scale-105"
 											/>
 										</div>

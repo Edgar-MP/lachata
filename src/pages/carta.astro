@@ -3,81 +3,398 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/layout/Header.astro";
 import Footer from "../components/layout/Footer.astro";
 import Button from "../components/base/Button.astro";
+import { Picture } from "astro:assets";
+import entrantesFriosImg from "../assets/platos/pimientos.webp";
+import entrantesCalientesImg from "../assets/platos/pulpo.webp";
+import carnesImg from "../assets/platos/chuleton.webp";
+import pescadosImg from "../assets/platos/IMG_9166.webp";
+import postresImg from "../assets/platos/canutillo-hojaldre.webp";
+
+const wineSections = [
+	{
+		title: "Tintos",
+		items: [
+			{ name: "Paco García 6", grapes: "Tempranillo", bottle: "15€", glass: "2,30€" },
+			{ name: "Altanza", grapes: "Sauvignon blanc", bottle: "15€", glass: "2,30€" },
+			{ name: "Blanco roto", grapes: "Semi dulce", bottle: "14€", glass: "2,30€" },
+		],
+	},
+	{
+		title: "Rosados",
+		items: [
+			{ name: "Emergente", grapes: "Garnacha", bottle: "15€", glass: "2,30€" },
+			{ name: "Bohemian Rhapsody", grapes: "Tempranillo", bottle: "17€" },
+		],
+	},
+	{
+		title: "Blancos",
+		items: [
+			{ name: "Caecus fermentado en barrica", grapes: "Viura, Malvasía", bottle: "17€" },
+			{ name: "Manael", grapes: "Tempranillo, Viura", bottle: "14,50€", glass: "2,30€" },
+			{ name: "La Emperatriz", grapes: "Viura", bottle: "18€" },
+			{ name: "Manael", grapes: "Viura", bottle: "14,50€" },
+			{ name: "Amaren fermentado en barrica", grapes: "Viura, Malvasía", bottle: "25€" },
+			{ name: "Valenciso fermentado en barrica", grapes: "Viura, Garnacha blanca", bottle: "27€", glass: "2,30€" },
+			{ name: "Luis Cañas viñas viejas", grapes: "Viura, Malvasía", bottle: "21€" },
+			{ name: "Campillo fermentado en barrica", grapes: "Viura y chardonay", bottle: "16€" },
+			{ name: "Faustino Art collection", grapes: "Viura y Chardonay", bottle: "15€" },
+		],
+	},
+	{
+		title: "Vino joven",
+		items: [{ name: "Vino joven", glass: "2,30€" }],
+	},
+	{
+		title: "Blancos y monovarietales",
+		items: [
+			{ name: "Victor Ausejo Parcela 333", grapes: "Garnacha blanca", bottle: "26€" },
+			{ name: "Faustino I gran reserva", grapes: "Viura, Chardonay", bottle: "33€" },
+			{ name: "Clipeo", grapes: "Maturana blanca", bottle: "24€" },
+			{ name: "Canene fermentado sobre lías", grapes: "Viura", bottle: "17,50€" },
+			{ name: "Suañe Reserva", grapes: "Viura, Sauvignon blanc", bottle: "31,50€" },
+		],
+	},
+	{
+		title: "Crianzas",
+		items: [
+			{ name: "Ondarre 7 parcelas", grapes: "Tempranillo, Mazuelo", bottle: "19,50€" },
+			{ name: "Rioja Bordón", grapes: "Tempranillo", bottle: "18€" },
+			{ name: "LAN D-12", grapes: "Tempranillo", bottle: "19,50€" },
+			{ name: "Campillo", grapes: "Tempranillo", bottle: "19,50€" },
+			{
+				name: "Luis Cañas",
+				grapes: "Tempranillo, Garnacha, Graciano, Viura, Malvasía",
+				bottle: "20€",
+			},
+			{ name: "Sierra Cantabria", grapes: "Tempranillo", bottle: "21,50€", glass: "3,10€" },
+			{ name: "Tobelos", grapes: "Tempranillo", bottle: "22,50€" },
+		],
+	},
+	{
+		title: "Vinos de autor y monovarietales",
+		items: [
+			{
+				name: "Selvanevada",
+				grapes: "Tempranillo, Graciano, Garnacha, Mazuelo",
+				bottle: "20€",
+			},
+			{
+				name: "Jesús Madrazo Num. IV",
+				grapes: "Tempranillo, Garnacha, Maturana, Graciano",
+				bottle: "24,50€",
+			},
+			{ name: "8 Caecus", grapes: "Tempranillo", bottle: "22€" },
+			{ name: "Villota Tinto", grapes: "Tempranillo, Graciano", bottle: "27€" },
+			{ name: "Tihom", grapes: "Mazuelo, Graciano, Garnacha", bottle: "32€" },
+			{ name: "Ángeles de Amaren", grapes: "Tempranillo, Graciano", bottle: "29€" },
+			{ name: "Paco García", grapes: "Tempranillo", bottle: "19€" },
+			{ name: "La Montesa", grapes: "Garnacha, otras" },
+			{
+				name: "Caran",
+				grapes: "Tempranillo, Graciano, Mazuelo, Maturana tinta",
+				bottle: "19,50€",
+			},
+			{ name: "La Merce", grapes: "Tempranillo", bottle: "20,50€", glass: "3,10€" },
+			{ name: "Peña el gato granito", grapes: "Garnacha", bottle: "24€" },
+			{ name: "Sierra Cantabria Cuvee", bottle: "33€" },
+			{ name: "Senderos de Ukan", grapes: "Tempranillo, Viura", bottle: "23,50€" },
+			{ name: "Monte Gatún", grapes: "Tempranillo, Garnacha, Mazuelo", bottle: "19,50€" },
+			{ name: "La Piconada", grapes: "Maturana tinta", bottle: "19€" },
+			{ name: "Victor Ausejo", grapes: "Mazuelo", bottle: "26,50€" },
+			{ name: "Finca la Canoca", grapes: "Tempranillo", bottle: "26,50€" },
+			{ name: "Campillo 57", grapes: "Tempranillo, Graciano", bottle: "30€" },
+		],
+	},
+	{
+		title: "Viñedo singular - tintos",
+		items: [
+			{
+				name: "Finca El Cristo de Samaniego",
+				grapes: "Tempranillo, Garnacha, Viura, Malvasía",
+				bottle: "45€",
+			},
+			{
+				name: "El sueño de Amado",
+				grapes: "Tempranillo, Graciano, Viura",
+				bottle: "22,50€",
+			},
+			{ name: "El guardián de la viña", grapes: "Tempranillo", bottle: "49€" },
+			{ name: "Finca El Palacio", grapes: "Tempranillo, Graciano, Viura", bottle: "59€" },
+			{ name: "Cerro La Isa", grapes: "Garnacha", bottle: "56€" },
+		],
+	},
+	{
+		title: "Viñedo singular - blancos",
+		items: [
+			{ name: "Los Quiñones", grapes: "Viura", bottle: "48€" },
+			{
+				name: "Cerro La Isa",
+				grapes: "Garnacha blanca, Malvasía, Viura, Turruntes, Calagraño",
+				bottle: "56€",
+			},
+			{ name: "Valdelascarretas", grapes: "Viura", bottle: "31€" },
+		],
+	},
+	{
+		title: "Reservas",
+		items: [
+			{
+				name: "Marqués de Vargas",
+				grapes: "Tempranillo, Mazuelo, Garnacha, otras",
+				bottle: "30€",
+			},
+			{ name: "Valenciso", grapes: "Tempranillo", bottle: "33€" },
+			{
+				name: "Marqués de Murrieta",
+				grapes: "Tempranillo, Graciano, Mazuelo, Garnacha",
+				bottle: "33€",
+			},
+			{
+				name: "Viña Tondonia",
+				grapes: "Tempranillo, Mazuelo, Garnacha, Graciano",
+				bottle: "43€",
+			},
+			{ name: "Roda I", grapes: "Tempranillo, Graciano", bottle: "64€" },
+			{ name: "Campillo", grapes: "Tempranillo", bottle: "23€" },
+		],
+	},
+	{
+		title: "Ribera del Duero",
+		items: [
+			{ name: "Corimbo", grapes: "Tempranillo", bottle: "31€" },
+			{ name: "Tierras de Cair", grapes: "Tempranillo", bottle: "48€" },
+			{ name: "Monteabellon 5M", grapes: "Tempranillo", bottle: "23€" },
+		],
+	},
+	{
+		title: "Rueda (verdejos)",
+		items: [
+			{ name: "Monteabellón", bottle: "14€" },
+			{ name: "Marqués de Riscal", bottle: "18€" },
+		],
+	},
+	{
+		title: "Albariños",
+		items: [
+			{ name: "Santiago Ruiz", bottle: "21€" },
+			{ name: "Pazo de Señorans", bottle: "22€" },
+		],
+	},
+	{
+		title: "Cavas y Champagne",
+		items: [
+			{ name: "Ondarre Brut Nature", bottle: "18€" },
+			{ name: "Juvé Camps Brut Nature", bottle: "32€" },
+			{ name: "Gosset Brut grande reserve (champagne)", bottle: "78€" },
+		],
+	},
+	{
+		title: "Pedro Ximenez",
+		items: [{ name: "Lustau", glass: "4€" }],
+	},
+	{
+		title: "Oporto",
+		items: [{ name: "Sandeman 10", glass: "5€" }],
+	},
+	{
+		title: "Priorato",
+		items: [
+			{
+				name: "Camins",
+				grapes: "Garnacha, Cariñena, Cabernet Sauvignon, Syrah",
+				bottle: "33€",
+			},
+		],
+	},
+	{
+		title: "Bierzo",
+		items: [{ name: "Petalos", grapes: "Mencía, otras", bottle: "24€" }],
+	},
+];
 
 const sections = [
 	{
-		title: "Para Abrir Boca",
-		note: "La esencia de nuestra tierra en bocados pequeños.",
-		image: "https://images.unsplash.com/photo-1547928576-a4a33237bec3?q=80&w=2070&auto=format&fit=crop",
+		title: "Entrantes fríos",
+		note: "Ración / ½ ración",
+		image: entrantesFriosImg,
 		items: [
 			{
-				name: "Patatas con Chorizo",
-				price: "12€",
-				desc: "Elaboradas a fuego lento con pimentón de la Vera y chorizo local.",
+				name: "*Tabla de embutidos ibéricos (chorizo, salchichón y paleta).",
+				price: "21,50€ / 12€",
+				desc: "",
 			},
 			{
-				name: "Caparrones de Anguiano",
-				price: "15€",
-				desc: "Legumbre de la Rioja Alta con su acompañamiento tradicional.",
+				name: "*Foie con mermelada casera de ciruela y pan de pasas.",
+				price: "18,50€ / 10,50€",
+				desc: "",
 			},
 			{
-				name: "Menestra de Verduras",
-				price: "16€",
-				desc: "Joyas de la huerta riojana seleccionadas cada mañana.",
-			},
-			{
-				name: "Croquetas de la Casa",
+				name: "*Carpaccio de ternera con AOVE, pimienta negra y queso cameros rallado.",
 				price: "14€",
-				desc: "De jamón ibérico o boletus, melosas y crujientes.",
+				desc: "",
 			},
 		],
 	},
 	{
-		title: "Del Fuego y el Agua",
-		note: "Nuestra especialidad al sarmiento y productos del Cantábrico.",
-		image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?q=80&w=2070&auto=format&fit=crop",
+		title: "Entrantes calientes",
+		note: "Ración / ½ ración",
+		image: entrantesCalientesImg,
 		items: [
 			{
-				name: "Chuletillas al Sarmiento",
-				price: "24€",
-				desc: "El aroma inconfundible de La Rioja en el plato.",
+				name: "*Ensalada templada de pimientos rojos asados con ventresca.",
+				price: "19,50€",
+				desc: "",
 			},
 			{
-				name: "Bacalao a la Riojana",
-				price: "22€",
-				desc: "Con pimientos rojos de nuestra propia huerta.",
+				name: "Rollitos crujientes de langostino macerado en soja con crema de puerro. 6uds",
+				price: "17,50€",
+				desc: "",
 			},
 			{
-				name: "Pescado del Mercado",
-				price: "s/m",
-				desc: "Lo mejor de la lonja seleccionado diariamente.",
+				name: "*Verduras salteadas con aceite de sésamo y yema de huevo trufada.",
+				price: "21,50€",
+				desc: "",
 			},
 			{
-				name: "Solomillo con Pimientos",
-				price: "26€",
-				desc: "Carne de primera con pimientos del cristal asados.",
+				name: "Saquitos fritos de morcilla y manzana asada sobre crema de piquillos. 6uds",
+				price: "21€ / 11,50€",
+				desc: "",
+			},
+			{
+				name: "*Pulpo a la brasa con parmentier, AOVE, y pimentón de la Vera.",
+				price: "19,50€ / 11€",
+				desc: "",
+			},
+			{
+				name: "Lecherillas empanadas y fritas con alegría riojana.",
+				price: "18,50€ / 10,50€",
+				desc: "",
+			},
+			{
+				name: "*Arroz meloso de boletus y carrilleras ibéricas con virutas de parmesano.",
+				price: "14€",
+				desc: "",
+			},
+			{
+				name: "Tempura de bacalao con semillas de amapola y salsa vizcaína.",
+				price: "12€",
+				desc: "",
+			},
+			{
+				name: "Croquetas caseras puerro confitado o picadillo. 6uds",
+				price: "19,50€ / 11€",
+				desc: "",
+			},
+			{
+				name: "*Plato de cuchara del día (Pochas, caparrones, patatas con chorizo...).",
+				price: "21€",
+				desc: "",
 			},
 		],
 	},
 	{
-		title: "El Final Dulce",
-		note: "Postres tradicionales hechos en casa.",
-		image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=1964&auto=format&fit=crop",
+		title: "Carnes",
+		note: "Sin gluten marcado con *",
+		image: carnesImg,
 		items: [
 			{
-				name: "Torrija de La Chata",
-				price: "8€",
-				desc: "Caramelizada, con helado de leche merengada.",
+				name: "*Chuletillas de cordero a la brasa con pimientos rojos al vino blanco y patatas baby asadas.",
+				price: "21€",
+				desc: "",
 			},
 			{
-				name: "Queso con Membrillo",
+				name: "*Entrecot a la brasa con patatas fritas y pimientos del país.",
+				price: "20,50€",
+				desc: "",
+			},
+			{
+				name: "*Carrilleras ibéricas guisadas al vino tinto con crema de boniato y patatas paja.",
+				price: "19,50€",
+				desc: "",
+			},
+			{
+				name: "*Solomillo de ternera a la brasa con foie fresco y salsa oporto.",
+				price: "24,50€",
+				desc: "",
+			},
+		],
+	},
+	{
+		title: "Pescados",
+		note: "Sin gluten marcado con *",
+		image: pescadosImg,
+		items: [
+			{
+				name: "*Bacalao a la riojana.",
+				price: "19,50€",
+				desc: "",
+			},
+			{
+				name: "Pimientos rellenos de changurro con salsa de ajo negro.",
+				price: "19€",
+				desc: "",
+			},
+			{
+				name: "Lomo de atún balfego a la brasa sobre wok de verduras salteadas con soja.",
+				price: "23,50€",
+				desc: "",
+			},
+			{
+				name: "Pescado fresco del día.",
+				price: "S/M",
+				desc: "",
+			},
+			{
+				name: "Mollete de pan.",
+				price: "0,90€",
+				desc: "",
+			},
+		],
+	},
+	{
+		title: "Postres",
+		note: "Todos los postres son caseros.",
+		image: postresImg,
+		items: [
+			{
+				name: "*Tarta de queso al horno.",
 				price: "7€",
-				desc: "Selección de quesos artesanos de la zona.",
+				desc: "",
 			},
 			{
-				name: "Sorbete de Vino Rioja",
+				name: "Canutillo de hojaldre relleno de nata o crema con chocolate.",
 				price: "6€",
-				desc: "Refrescante y profundamente riojano.",
+				desc: "",
+			},
+			{
+				name: "*Milhojas de tres chocolates.",
+				price: "7,50€",
+				desc: "",
+			},
+			{
+				name: "Goxua.",
+				price: "6€",
+				desc: "",
+			},
+			{
+				name: "*Sorbete de mojito (heladería Dellasera) y ron.",
+				price: "6,50€",
+				desc: "",
+			},
+			{
+				name: "Trufas (obrador kankel) al vino tinto y al vino blanco. 6uds",
+				price: "9€",
+				desc: "",
+			},
+			{
+				name: "Sopa de frutos rojos con helado de queso de cabra (heladería Dellasera) y teja de almendras.",
+				price: "8€",
+				desc: "",
+			},
+			{
+				name: "*Tabla de queso Cameros con membrillo casero.",
+				price: "8,50€",
+				desc: "",
 			},
 		],
 	},
@@ -153,9 +470,11 @@ const sections = [
 																{item.price}
 															</span>
 														</div>
-														<p class="text-primary/60 font-sans text-sm leading-relaxed max-w-lg group-hover:translate-x-2 transition-transform duration-500">
-															{item.desc}
-														</p>
+														{item.desc ? (
+															<p class="text-primary/60 font-sans text-sm leading-relaxed max-w-lg group-hover:translate-x-2 transition-transform duration-500">
+																{item.desc}
+															</p>
+														) : null}
 													</div>
 												))}
 											</div>
@@ -166,9 +485,14 @@ const sections = [
 											<div class="relative group">
 												<div class="absolute -inset-4 border border-primary/5 -z-10 group-hover:-inset-6 transition-all duration-1000"></div>
 												<div class="aspect-4/5 overflow-hidden bg-white shadow-2xl">
-													<img 
-														src={section.image} 
-														alt={section.title} 
+													<Picture
+														src={section.image}
+														alt={section.title}
+														formats={["avif", "webp"]}
+														fallbackFormat="webp"
+														widths={[700, 1100]}
+														sizes="(min-width: 1024px) 40vw, 100vw"
+														pictureAttributes={{ class: "w-full h-full" }}
 														class="w-full h-full object-cover grayscale-20 group-hover:grayscale-0 transition-all duration-[2s] group-hover:scale-105"
 													/>
 												</div>
@@ -180,8 +504,77 @@ const sections = [
 						}
 					</div>
 
+					<!-- Wine List -->
+					<section class="mt-32">
+						<div class="text-center reveal-on-scroll">
+							<span class="text-primary/40 font-sans text-xs uppercase tracking-[0.4em] mb-4 block">
+								Carta de vinos
+							</span>
+							<h2 class="text-primary font-heading text-5xl md:text-6xl leading-none mb-6">
+								Selección de vinos
+							</h2>
+							<p class="text-primary/50 font-sans text-xs uppercase tracking-[0.3em]">
+								Botella y copa especificadas
+							</p>
+						</div>
+
+						<div class="mt-16 space-y-20">
+							{wineSections.map((section, wIdx) => (
+								<div
+									class="reveal-on-scroll"
+									style={`transition-delay: ${wIdx * 0.05}s`}
+								>
+									<h3 class="text-primary font-heading text-3xl mb-6 italic">
+										{section.title}
+									</h3>
+									<div class="grid gap-y-4">
+										{section.items.map((item, iIdx) => (
+											<div class="group py-6 px-6 border-b border-primary/5 hover:bg-primary/2 transition-all duration-500">
+												<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+													<div class="flex-1">
+														<h4 class="text-primary font-heading text-xl">
+															{item.name}
+														</h4>
+														{item.grapes ? (
+															<p class="text-primary/50 font-sans text-sm">
+																{item.grapes}
+															</p>
+														) : null}
+													</div>
+													<div class="flex flex-wrap gap-4 text-primary font-sans text-sm uppercase tracking-widest">
+														{item.bottle ? (
+															<span class="inline-flex items-center gap-2 border border-primary/10 px-3 py-1">
+																<span class="text-[10px]">Bot.</span>
+																<span class="font-bold text-base normal-case">{item.bottle}</span>
+															</span>
+														) : null}
+														{item.glass ? (
+															<span class="inline-flex items-center gap-2 border border-primary/10 px-3 py-1">
+																<span class="text-[10px]">Copa</span>
+																<span class="font-bold text-base normal-case">{item.glass}</span>
+															</span>
+														) : null}
+														{!item.bottle && !item.glass ? (
+															<span class="text-primary/40 text-xs">Consultar</span>
+														) : null}
+													</div>
+												</div>
+											</div>
+										))}
+									</div>
+								</div>
+							))}
+						</div>
+					</section>
+
 					<!-- Bottom CTA -->
-					<div class="mt-32 text-center reveal-on-scroll">
+					<div class="mt-20 text-center reveal-on-scroll">
+						<p class="text-primary/50 font-sans text-xs uppercase tracking-[0.3em] mb-4">
+							Sin gluten marcado con *
+						</p>
+						<p class="text-primary/50 font-sans text-xs uppercase tracking-[0.3em] mb-12">
+							Todos los postres van acompañados de helado exc. goxua, sorbete y trufas
+						</p>
 						<div
 							class="bg-primary/5 p-12 lg:p-20 relative overflow-hidden group"
 						>

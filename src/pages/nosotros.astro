@@ -2,6 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/layout/Header.astro";
 import Footer from "../components/layout/Footer.astro";
+import { Picture } from "astro:assets";
+import fachadaImg from "../assets/restaurante/IMG_7245.webp";
+import productoImg from "../assets/platos/IMG_7167.webp";
+import cavaImg from "../assets/restaurante/IMG_0964.webp";
 ---
 
 <Layout title="Nuestra Historia | La Chata 1821">
@@ -20,9 +24,7 @@ import Footer from "../components/layout/Footer.astro";
 					style="transition-delay: 0.1s"
 				>
 					Historia <br />
-					<span class="italic font-normal ml-[0.5em] md:ml-[1em]"
-						>viva</span
-					>
+					<span class="italic font-normal ml-[0.5em] md:ml-[1em]">viva</span>
 				</h1>
 			</div>
 		</section>
@@ -36,12 +38,15 @@ import Footer from "../components/layout/Footer.astro";
 							class="absolute -inset-4 border border-primary/5 -z-10 group-hover:-inset-6 transition-all duration-1000"
 						>
 						</div>
-						<div
-							class="aspect-4/5 overflow-hidden bg-white shadow-2xl"
-						>
-							<img
-								src="https://images.unsplash.com/photo-1543412849-fb2526095111?q=80&w=1974&auto=format&fit=crop"
+						<div class="aspect-4/5 overflow-hidden bg-white shadow-2xl">
+							<Picture
+								src={fachadaImg}
 								alt="Fachada histórica y ambiente"
+								formats={["avif", "webp"]}
+								fallbackFormat="webp"
+								widths={[900, 1400]}
+								sizes="(min-width: 1024px) 60vw, 100vw"
+								pictureAttributes={{ class: "w-full h-full" }}
 								class="w-full h-full object-cover grayscale-20 group-hover:grayscale-0 transition-all duration-[2s] group-hover:scale-105"
 							/>
 						</div>
@@ -53,28 +58,23 @@ import Footer from "../components/layout/Footer.astro";
 					style="transition-delay: 0.2s"
 				>
 					<div class="max-w-md">
-						<p
-							class="text-primary font-heading text-3xl mb-12 leading-tight"
-						>
-							La Chata vuelve a la vida un lustro después,
-							manteniendo el fuego sagrado de la tradición desde
-							1821.
+						<p class="text-primary font-heading text-3xl mb-12 leading-tight">
+							La Chata vuelve a la vida un lustro después, manteniendo el fuego
+							sagrado de la tradición desde 1821.
 						</p>
 						<div
 							class="space-y-8 text-primary/70 font-sans text-lg leading-relaxed"
 						>
 							<p>
-								Lo hacemos con la ilusión de una nueva
-								dirección, pero sin dejar atrás ni un ápice de
-								la honestidad a la que obliga un espacio como
-								este, en el corazón latente de Logroño.
+								Lo hacemos con la ilusión de una nueva dirección, pero sin dejar
+								atrás ni un ápice de la honestidad a la que obliga un espacio
+								como este, en el corazón latente de Logroño.
 							</p>
 							<p>
-								Ponemos en marcha este templo de la cocina
-								tradicional riojana. En nuestras mesas se han
-								sentado generaciones, compartiendo no solo
-								comida, sino historias que hoy forman parte de
-								nuestro patrimonio.
+								Ponemos en marcha este templo de la cocina tradicional riojana.
+								En nuestras mesas se han sentado generaciones, compartiendo no
+								solo comida, sino historias que hoy forman parte de nuestro
+								patrimonio.
 							</p>
 						</div>
 					</div>
@@ -90,8 +90,8 @@ import Footer from "../components/layout/Footer.astro";
 					<h2
 						class="text-secondary font-heading text-4xl md:text-6xl italic leading-tight"
 					>
-						"Uno de esos rincones a los que acudir para resguardarse
-						del frío al calor de unas buenas patatas con chorizo."
+						"Uno de esos rincones a los que acudir para resguardarse del frío al
+						calor de unas buenas patatas con chorizo."
 					</h2>
 					<div class="w-12 h-px bg-white/20 mx-auto mt-12"></div>
 				</div>
@@ -109,15 +109,13 @@ import Footer from "../components/layout/Footer.astro";
 						class="space-y-6 text-primary/60 font-sans text-lg leading-relaxed max-w-sm"
 					>
 						<p>
-							Respeto absoluto al producto y a la memoria del
-							paladar. En La Chata 1821 recuperamos lo bueno:
-							caparrones de profundidad, chuletillas al sarmiento
-							y pescados que saben a mar.
+							Respeto absoluto al producto y a la memoria del paladar. En La
+							Chata 1821 recuperamos lo bueno: caparrones de profundidad,
+							chuletillas al sarmiento y pescados que saben a mar.
 						</p>
 						<p>
-							No buscamos inventar, sino honrar lo que ha
-							funcionado durante siglos. El sabor del hogar
-							trasladado a la mesa de Carnicerías 3.
+							No buscamos inventar, sino honrar lo que ha funcionado durante
+							siglos. El sabor del hogar trasladado a la mesa de Carnicerías 3.
 						</p>
 					</div>
 				</div>
@@ -127,19 +125,27 @@ import Footer from "../components/layout/Footer.astro";
 					style="transition-delay: 0.2s"
 				>
 					<div class="grid grid-cols-2 gap-4">
-						<div
-							class="aspect-3/4 overflow-hidden bg-white translate-y-12"
-						>
-							<img
-								src="https://images.unsplash.com/photo-1541414779316-956a5084c0d4?q=80&w=1968&auto=format&fit=crop"
+						<div class="aspect-3/4 overflow-hidden bg-white translate-y-12">
+							<Picture
+								src={productoImg}
 								alt="Productos de la tierra"
+								formats={["avif", "webp"]}
+								fallbackFormat="webp"
+								widths={[500, 800]}
+								sizes="(min-width: 1024px) 28vw, 50vw"
+								pictureAttributes={{ class: "w-full h-full" }}
 								class="w-full h-full object-cover hover:scale-110 transition-transform duration-[2s]"
 							/>
 						</div>
 						<div class="aspect-3/4 overflow-hidden bg-white">
-							<img
-								src="https://images.unsplash.com/photo-1514361892635-6b07e31e75f9?q=80&w=2070&auto=format&fit=crop"
+							<Picture
+								src={cavaImg}
 								alt="Cava y vinos"
+								formats={["avif", "webp"]}
+								fallbackFormat="webp"
+								widths={[500, 800]}
+								sizes="(min-width: 1024px) 28vw, 50vw"
+								pictureAttributes={{ class: "w-full h-full" }}
 								class="w-full h-full object-cover hover:scale-110 transition-transform duration-[2s]"
 							/>
 						</div>
