@@ -1,0 +1,122 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+import Button from "../components/base/Button.astro";
+import { wineSections } from "../data/wines";
+---
+
+<Layout title="Carta de Vinos | La Chata 1821">
+	<Header />
+
+	<main class="bg-secondary pt-32">
+		<section class="editorial-container py-24 relative overflow-hidden">
+			<div
+				class="absolute -top-24 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"
+			>
+			</div>
+
+			<div class="max-w-4xl mx-auto text-center reveal-on-scroll">
+				<span class="text-primary/40 font-sans text-xs uppercase tracking-[0.4em] mb-6 block">
+					La Seleccion
+				</span>
+				<h1 class="text-primary font-heading text-6xl md:text-8xl leading-none mb-8">
+					Carta de Vinos
+				</h1>
+				<div class="w-24 h-px bg-primary/20 mx-auto mb-8"></div>
+				<p class="text-primary/60 font-serif italic text-xl max-w-xl mx-auto leading-relaxed">
+					"Botellas y copas seleccionadas para acompañar cada plato."
+				</p>
+			</div>
+		</section>
+
+		<section class="pb-32">
+			<div class="editorial-container">
+				<div class="max-w-4xl mx-auto">
+					<div class="text-center reveal-on-scroll">
+						<p class="text-primary/50 font-sans text-xs uppercase tracking-[0.3em]">
+							Botella y copa especificadas
+						</p>
+					</div>
+
+					<div class="mt-16 space-y-20">
+						{wineSections.map((section, wIdx) => (
+							<div class="reveal-on-scroll" style={`transition-delay: ${wIdx * 0.05}s`}>
+								<h2 class="text-primary font-heading text-3xl mb-6 italic">{section.title}</h2>
+								<div class="grid gap-y-4">
+									{section.items.map((item) => (
+										<div class="group py-6 px-6 border-b border-primary/5 hover:bg-primary/2 transition-all duration-500">
+											<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+												<div class="flex-1">
+													<h3 class="text-primary font-heading text-xl">{item.name}</h3>
+													{item.grapes ? (
+														<p class="text-primary/50 font-sans text-sm">{item.grapes}</p>
+													) : null}
+												</div>
+												<div class="flex flex-wrap gap-4 text-primary font-sans text-sm uppercase tracking-widest">
+													{item.bottle ? (
+														<span class="inline-flex items-center gap-2 border border-primary/10 px-3 py-1">
+															<span class="text-[10px]">Bot.</span>
+															<span class="font-bold text-base normal-case">{item.bottle}</span>
+														</span>
+													) : null}
+													{item.glass ? (
+														<span class="inline-flex items-center gap-2 border border-primary/10 px-3 py-1">
+															<span class="text-[10px]">Copa</span>
+															<span class="font-bold text-base normal-case">{item.glass}</span>
+														</span>
+													) : null}
+													{!item.bottle && !item.glass ? (
+														<span class="text-primary/40 text-xs">Consultar</span>
+													) : null}
+												</div>
+											</div>
+										</div>
+									))}
+								</div>
+							</div>
+						))}
+					</div>
+
+					<div class="mt-20 text-center reveal-on-scroll">
+						<div class="bg-primary/5 p-12 lg:p-20 relative overflow-hidden group">
+							<div
+								class="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out -z-10"
+							>
+							</div>
+							<div class="relative z-10">
+								<h3 class="text-primary group-hover:text-white font-heading text-3xl md:text-4xl mb-8 transition-colors duration-500">
+									¿Le apetece acompañarlo con nuestra cocina?
+								</h3>
+								<Button
+									href="/carta"
+									variant="ghost"
+									class="px-12 py-4 border border-primary/20 group-hover:border-white/40 text-primary group-hover:text-white transition-all duration-500"
+								>
+									VER CARTA
+								</Button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+
+	<script is:inline>
+		const observerOptions = { threshold: 0.1 };
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("visible");
+				}
+			});
+		}, observerOptions);
+
+		document
+			.querySelectorAll(".reveal-on-scroll")
+			.forEach((el) => observer.observe(el));
+	</script>
+</Layout>
