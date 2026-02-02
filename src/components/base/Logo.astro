@@ -2,12 +2,14 @@
 interface Props {
   class?: string;
   color?: string;
+  id?: string;
+  [key: string]: any;
 }
 
-const { class: className, color = "currentColor" } = Astro.props;
+const { class: className, color = "currentColor", ...rest } = Astro.props;
 ---
 
-<svg class={className} viewBox="0 0 300 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="La Chata 1821 Logo">
+<svg class={className} viewBox="0 0 300 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="La Chata 1821 Logo" {...rest}>
   <!-- Background texture hint (optional, kept simple for now) -->
   
   <!-- "La Chata" -->
