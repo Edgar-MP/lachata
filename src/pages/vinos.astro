@@ -43,37 +43,75 @@ import { wineSections } from "../data/wines";
 						{wineSections.map((section, wIdx) => (
 							<div class="reveal-on-scroll" style={`transition-delay: ${wIdx * 0.05}s`}>
 								<h2 class="text-primary font-heading text-3xl mb-6 italic">{section.title}</h2>
-								<div class="grid gap-y-4">
-									{section.items.map((item) => (
-										<div class="group py-6 px-6 border-b border-primary/5 hover:bg-primary/2 transition-all duration-500">
-											<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-												<div class="flex-1">
-													<h3 class="text-primary font-heading text-xl">{item.name}</h3>
-													{item.grapes ? (
-														<p class="text-primary/50 font-sans text-sm">{item.grapes}</p>
-													) : null}
-												</div>
-												<div class="flex flex-wrap gap-4 text-primary font-sans text-sm uppercase tracking-widest">
-													{item.bottle ? (
-														<span class="inline-flex items-center gap-2 border border-primary/10 px-3 py-1">
-															<span class="text-[10px]">Bot.</span>
-															<span class="font-bold text-base normal-case">{item.bottle}</span>
-														</span>
-													) : null}
-													{item.glass ? (
-														<span class="inline-flex items-center gap-2 border border-primary/10 px-3 py-1">
-															<span class="text-[10px]">Copa</span>
-															<span class="font-bold text-base normal-case">{item.glass}</span>
-														</span>
-													) : null}
-													{!item.bottle && !item.glass ? (
-														<span class="text-primary/40 text-xs">Consultar</span>
-													) : null}
+								{section.subsections ? (
+									<div class="space-y-8">
+										{section.subsections.map((sub) => (
+											<div>
+												<h3 class="text-primary/60 font-sans text-xs uppercase tracking-widest mb-4 border-b border-primary/10 pb-2">{sub.subtitle}</h3>
+												<div class="grid gap-y-4">
+													{sub.items.map((item) => (
+														<div class="group py-6 px-6 border-b border-primary/5 hover:bg-primary/2 transition-all duration-500">
+															<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+																<div class="flex-1">
+																	<h3 class="text-primary font-heading text-xl">{item.name}</h3>
+																	{item.grapes ? (
+																		<p class="text-primary/50 font-sans text-sm">{item.grapes}</p>
+																	) : null}
+																</div>
+																<div class="flex flex-wrap gap-4 text-primary font-sans text-sm uppercase tracking-widest">
+																	{item.bottle ? (
+																		<span class="inline-flex items-center gap-2 border border-primary/10 px-3 py-1">
+																			<span class="text-[10px]">Bot.</span>
+																			<span class="font-bold text-base normal-case">{item.bottle}</span>
+																		</span>
+																	) : null}
+																	{item.glass ? (
+																		<span class="inline-flex items-center gap-2 border border-primary/10 px-3 py-1">
+																			<span class="text-[10px]">Copa</span>
+																			<span class="font-bold text-base normal-case">{item.glass}</span>
+																		</span>
+																	) : null}
+																</div>
+															</div>
+														</div>
+													))}
 												</div>
 											</div>
-										</div>
-									))}
-								</div>
+										))}
+									</div>
+								) : (
+									<div class="grid gap-y-4">
+										{section.items!.map((item) => (
+											<div class="group py-6 px-6 border-b border-primary/5 hover:bg-primary/2 transition-all duration-500">
+												<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+													<div class="flex-1">
+														<h3 class="text-primary font-heading text-xl">{item.name}</h3>
+														{item.grapes ? (
+															<p class="text-primary/50 font-sans text-sm">{item.grapes}</p>
+														) : null}
+													</div>
+													<div class="flex flex-wrap gap-4 text-primary font-sans text-sm uppercase tracking-widest">
+														{item.bottle ? (
+															<span class="inline-flex items-center gap-2 border border-primary/10 px-3 py-1">
+																<span class="text-[10px]">Bot.</span>
+																<span class="font-bold text-base normal-case">{item.bottle}</span>
+															</span>
+														) : null}
+														{item.glass ? (
+															<span class="inline-flex items-center gap-2 border border-primary/10 px-3 py-1">
+																<span class="text-[10px]">Copa</span>
+																<span class="font-bold text-base normal-case">{item.glass}</span>
+															</span>
+														) : null}
+														{!item.bottle && !item.glass ? (
+															<span class="text-primary/40 text-xs">Consultar</span>
+														) : null}
+													</div>
+												</div>
+											</div>
+										))}
+									</div>
+								)}
 							</div>
 						))}
 					</div>
