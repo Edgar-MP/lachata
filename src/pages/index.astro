@@ -7,9 +7,10 @@ import ReservationWidget from "../components/sections/ReservationWidget.astro";
 import Button from "../components/base/Button.astro";
 import { Picture } from "astro:assets";
 import corazonRiojano from "../assets/corazon-riojano.webp";
-import patatasRiojana from "../assets/patatas-riojana.webp";
-import alubiasBlancas from "../assets/alubias-blancas.webp";
 import pulpo from "../assets/pulpo.webp";
+import chuletillas from "../assets/platos/IMG_9166.webp";
+import bacalaoRiojana from "../assets/platos/IMG_7148.webp";
+import carrilleras from "../assets/platos/carrilleras.webp";
 ---
 
 <Layout title="La Chata 1821 | Templo de la Cocina Riojana">
@@ -158,21 +159,21 @@ import pulpo from "../assets/pulpo.webp";
 							{
 								[
 									{
-										title: "Patatas a la Riojana",
-										desc: "Guiso clásico y reconfortante, con chorizo y pimentón, servido humeante como manda la tradición.",
-										image: patatasRiojana,
+										title: "Chuletillas de Cordero",
+										desc: "A la brasa con patatas baby asadas, pimientos del país y del piquillo.",
+										image: chuletillas,
 										align: "left",
 									},
 									{
-										title: "Alubias Blancas",
-										desc: "Cocidas a fuego lento, melosas y sabrosas, con su punto exacto de caldo y cariño riojano.",
-										image: alubiasBlancas,
+										title: "Bacalao a la Riojana",
+										desc: "Lomo de bacalao sobre salsa de pimiento rojo, como manda la tradición riojana.",
+										image: bacalaoRiojana,
 										align: "right",
 									},
 									{
-										title: "Pulpo",
-										desc: "Pulpo a la brasa con parmentier, AOVE y pimentón de la Vera.",
-										image: pulpo,
+										title: "Carrilleras Ibéricas",
+										desc: "Al vino tinto con crema de patata y chips crujientes.",
+										image: carrilleras,
 										align: "left",
 									},
 								].map((item, idx) => (
