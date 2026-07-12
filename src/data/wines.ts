@@ -32,16 +32,17 @@ export const wineSections: WineSection[] = [
 				items: [
 					{ name: "Emergente", grapes: "Garnacha", bottle: "15€", glass: "2,30€" },
 					{ name: "Bohemian Rhapsody", grapes: "Tempranillo", bottle: "17€" },
+					{ name: "Suañé Rosado (reserva)", grapes: "Viura, Garnacha tinta, Sauvignon blanc", bottle: "32,50€" },
 				],
 			},
 			{
 				subtitle: "Blanco",
 				items: [
-					{ name: "Altanza", grapes: "Sauvignon blanc", bottle: "15€", glass: "2,30€" },
+					{ name: "Altanza", grapes: "Sauvignon blanc", bottle: "15€" },
 					{ name: "Manael", grapes: "Viura", bottle: "14,50€", glass: "2,30€" },
 					{ name: "Blanco roto", grapes: "Semi dulce", bottle: "14€", glass: "2,30€" },
 					{ name: "Faustino Art collection", grapes: "Viura y Chardonay", bottle: "15€", glass: "2,30€" },
-					{ name: "La Emperatriz", grapes: "Viura", bottle: "18€" },
+					{ name: "Dominio de Nobleza", grapes: "Tempranillo", bottle: "17€", glass: "2,50€" },
 				],
 			},
 		],
@@ -49,7 +50,6 @@ export const wineSections: WineSection[] = [
 	{
 		title: "Blanco y monovarietales",
 		items: [
-			{ name: "Caecus fermentado en barrica", grapes: "Viura, Malvasía", bottle: "17€" },
 			{ name: "Luis Cañas viñas viejas", grapes: "Viura, Malvasía", bottle: "21€" },
 			{ name: "Campillo fermentado en barrica", grapes: "Viura y Chardonay", bottle: "16€" },
 			{ name: "Amaren fermentado en barrica", grapes: "Viura, Malvasía", bottle: "25€" },
@@ -58,7 +58,7 @@ export const wineSections: WineSection[] = [
 			{ name: "Faustino I gran reserva", grapes: "Viura, Chardonay", bottle: "33€" },
 			{ name: "Clipeo", grapes: "Maturana blanca", bottle: "24€" },
 			{ name: "Canene fermentado sobre lías", grapes: "Viura", bottle: "17,50€" },
-			{ name: "Suañe Reserva", grapes: "Viura, Sauvignon blanc", bottle: "31,50€" },
+			{ name: "Suañe Reserva", grapes: "Viura, Sauvignon blanc", bottle: "32,50€" },
 		],
 	},
 	{
@@ -66,12 +66,13 @@ export const wineSections: WineSection[] = [
 		items: [
 			{ name: "Rioja Bordón", grapes: "Tempranillo", bottle: "18€" },
 			{ name: "Ondarre 7 parcelas", grapes: "Tempranillo, Mazuelo", bottle: "19,50€", glass: "3,10€" },
-			{ name: "LAN D-12", grapes: "Tempranillo", bottle: "19,50€", glass: "3,10€" },
+			{ name: "LAN D-12", grapes: "Tempranillo", bottle: "19,50€" },
 			{ name: "Campillo", grapes: "Tempranillo", bottle: "19,50€", glass: "3,10€" },
 			{
 				name: "Luis Cañas",
 				grapes: "Tempranillo, Garnacha, Graciano, Viura, Malvasía",
 				bottle: "19,50€",
+				glass: "3,10€",
 			},
 			{ name: "Paco García", grapes: "Tempranillo", bottle: "19€" },
 			{ name: "Tobelos", grapes: "Tempranillo", bottle: "20€" },
@@ -105,7 +106,8 @@ export const wineSections: WineSection[] = [
 			{ name: "Sierra Cantabria Cuvee", bottle: "33€" },
 			{ name: "Peña el gato granito", grapes: "Garnacha", bottle: "24€" },
 			{ name: "Senderos de Ukan", grapes: "Tempranillo, Viura", bottle: "23,50€" },
-			{ name: "Monte Gatún", grapes: "Tempranillo, Garnacha, Mazuelo", bottle: "19,50€" },
+			{ name: "Monte Gatún", grapes: "Tempranillo, Garnacha, Mazuelo", bottle: "20,50€" },
+			{ name: "Viña Lanciano", grapes: "Tempranillo, Graciano, Mazuelo", bottle: "28,50€" },
 			{ name: "La Piconada", grapes: "Maturana tinta", bottle: "19€" },
 			{ name: "Victor Ausejo", grapes: "Mazuelo", bottle: "26,50€" },
 			{ name: "Campillo 57", grapes: "Tempranillo, Graciano", bottle: "30€" },

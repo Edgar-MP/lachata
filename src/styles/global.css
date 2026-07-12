@@ -8,9 +8,9 @@
   --color-text: #1A1A1A;
   --color-accent: #5C1E2A;
 
-  --font-serif: "Playfair Display", serif;
-  --font-sans: "Inter", sans-serif;
-  --font-heading: "Playfair Display", serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Crimson Pro", serif;
+  --font-heading: "Cormorant Garamond", serif;
 
   --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-float: float 6s ease-in-out infinite;
@@ -74,6 +74,7 @@
   h5,
   h6 {
     font-family: var(--font-heading);
+    font-style: italic;
     @apply tracking-tighter;
   }
 }
