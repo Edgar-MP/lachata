@@ -6,140 +6,135 @@ import Button from "../components/base/Button.astro";
 import { Picture } from "astro:assets";
 import entrantesFriosImg from "../assets/platos/pimientos.webp";
 import entrantesCalientesImg from "../assets/platos/pulpo.webp";
-import carnesImg from "../assets/platos/chuleton.webp";
+import carnesImg from "../assets/platos/carrilleras.webp";
 import pescadosImg from "../assets/platos/IMG_9166.webp";
 import postresImg from "../assets/platos/canutillo-hojaldre.webp";
 
 const sections = [
 	{
 		title: "Entrantes fríos",
-		note: "Ración / ½ ración",
+		note: "Ración / ½ ración · ● Sin gluten",
 		image: entrantesFriosImg,
 		items: [
 			{
-				name: "*Tabla de embutidos ibéricos (chorizo, salchichón y paleta).",
+				name: "● Paleta ibérica.",
 				price: "21,50€ / 12€",
 				desc: "",
 			},
 			{
-				name: "*Foie con mermelada casera de ciruela y pan de pasas.",
-				price: "19,50€ / 11€",
+				name: "● Ensalada de tomate con ventresca, piparras y cebolleta dulce.",
+				price: "19,50€ / 10€",
 				desc: "",
 			},
 			{
-				name: "*Carpaccio de ternera con AOVE, pimienta negra y queso cameros rallado.",
-				price: "21€",
+				name: "Carpaccio de bacalao con tomate natural rallado, picada de oliva negra, pistachos y AOVE.",
+				price: "21,50€ / 11€",
 				desc: "",
 			},
 		],
 	},
 	{
 		title: "Entrantes calientes",
-		note: "Ración / ½ ración",
+		note: "Ración / ½ ración · ● Sin gluten",
 		image: entrantesCalientesImg,
 		items: [
 			{
-				name: "*Ensalada templada de pimientos rojos asados con ventresca.",
-				price: "18,50€ / 10,50€",
+				name: "● Pulpo a la brasa sobre crema de patata y pimentón de la Vera.",
+				price: "22€",
 				desc: "",
 			},
 			{
-				name: "Rollitos crujientes de langostino macerado en soja con crema de puerro. 6uds",
+				name: "Croquetas caseras de puerro o picadillo. 6uds",
 				price: "14€",
 				desc: "",
 			},
 			{
-				name: "*Verduras salteadas con aceite de sésamo y yema de huevo trufada.",
-				price: "19,50€",
+				name: "● Arroz meloso de sepia y langostinos.",
+				price: "21€ / 11€",
 				desc: "",
 			},
 			{
-				name: "Saquitos fritos de morcilla y manzana asada sobre crema de piquillos. 6uds",
-				price: "17,50€",
+				name: "Rollitos crujientes de langostino y salsa de puerro. 6uds",
+				price: "16€",
 				desc: "",
 			},
 			{
-				name: "*Pulpo a la brasa con parmentier, AOVE, y pimentón de la Vera.",
-				price: "21,50€",
+				name: "● Vieiras a la brasa sobre parmentier de boletus. 6uds",
+				price: "22,50€ / 11€",
 				desc: "",
 			},
 			{
-				name: "Lecherillas empanadas y fritas con alegría riojana.",
-				price: "21€ / 11,50€",
+				name: "Lecherillas de cordero empanadas con alegría riojana.",
+				price: "21€ / 11€",
 				desc: "",
 			},
 			{
-				name: "*Arroz meloso de boletus y carrilleras ibéricas con virutas de parmesano.",
-				price: "19,50€ / 11€",
+				name: "Saquitos de morcilla y manzana asada sobre crema de piquillos. 6uds",
+				price: "18€",
 				desc: "",
 			},
 			{
-				name: "Tempura de bacalao con semillas de amapola y salsa vizcaína.",
-				price: "18,50€ / 10,50€",
-				desc: "",
-			},
-			{
-				name: "Croquetas caseras puerro confitado o picadillo. 6uds",
-				price: "14€",
-				desc: "",
-			},
-			{
-				name: "*Plato de cuchara del día (Pochas, caparrones, patatas con chorizo...).",
-				price: "12€",
+				name: "Callos y morros de ternera a la plancha con salsa Vizcaína.",
+				price: "19,50€ / 10,50€",
 				desc: "",
 			},
 		],
 	},
 	{
 		title: "Carnes",
-		note: "Sin gluten marcado con *",
+		note: "● Sin gluten",
 		image: carnesImg,
 		items: [
 			{
-				name: "*Chuletillas de cordero a la brasa con pimientos rojos al vino blanco y patatas baby asadas.",
-				price: "21€",
-				desc: "",
-			},
-			{
-				name: "*Confit de pato sobre crema de patata morada y salsa de frutos rojos.",
-				price: "21,50€",
-				desc: "",
-			},
-			{
-				name: "*Carrilleras ibéricas guisadas al vino tinto con crema de boniato y patatas paja.",
+				name: "● Carrilleras de cerdo ibérico al vino tinto con crema de patata y chips crujientes.",
 				price: "19,50€",
 				desc: "",
 			},
 			{
-				name: "*Solomillo de ternera a la brasa con foie fresco y salsa oporto.",
-				price: "24,50€",
+				name: "● Chuletillas de cordero a la brasa con patatas baby asadas, pimientos del país y del piquillo.",
+				price: "21€",
+				desc: "",
+			},
+			{
+				name: "● Solomillo de ternera a la brasa con salsa oporto, foie y chalotas asadas.",
+				price: "25€",
+				desc: "",
+			},
+			{
+				name: "Albóndigas de chuletón con salsa española y patatas fritas.",
+				price: "22,50€",
 				desc: "",
 			},
 		],
 	},
 	{
 		title: "Pescados",
-		note: "Sin gluten marcado con *",
+		note: "● Sin gluten",
 		image: pescadosImg,
 		items: [
 			{
-				name: "*Bacalao a la riojana.",
-				price: "19,50€",
+				name: "● Pescado fresco del día.",
+				price: "S/M",
 				desc: "",
 			},
 			{
-				name: "Pimientos rellenos de changurro con salsa de ajo negro.",
+				name: "Pimientos rellenos de changurro sobre salsa de ajo negro.",
 				price: "19€",
 				desc: "",
 			},
 			{
-				name: "Lomo de atún balfego a la brasa sobre wok de verduras salteadas con soja.",
+				name: "● Bacalao a la riojana.",
+				price: "19,50€",
+				desc: "",
+			},
+			{
+				name: "Cocochas de bacalao en salsa verde.",
 				price: "23,50€",
 				desc: "",
 			},
 			{
-				name: "*Pescado fresco del día.",
-				price: "S/M",
+				name: "Atún Balfegó a la brasa con verduras salteadas en soja.",
+				price: "23,50€",
 				desc: "",
 			},
 			{
@@ -151,47 +146,52 @@ const sections = [
 	},
 	{
 		title: "Postres",
-		note: "Todos los postres son caseros.",
+		note: "Todos los postres son caseros · ● Sin gluten",
 		image: postresImg,
 		items: [
 			{
-				name: "*Tarta de queso al horno.",
-				price: "7€",
-				desc: "",
-			},
-			{
-				name: "Canutillo de hojaldre relleno de nata o crema con chocolate.",
-				price: "6€",
-				desc: "",
-			},
-			{
-				name: "*Milhojas de tres chocolates.",
-				price: "7,50€",
-				desc: "",
-			},
-			{
-				name: "Goxua.",
-				price: "6€",
-				desc: "",
-			},
-			{
-				name: "*Sorbete de mojito (heladería Dellasera) y ron.",
-				price: "6,50€",
-				desc: "",
-			},
-			{
-				name: "Trufas (obrador kankel) al vino tinto y al vino blanco. 6uds",
-				price: "9€",
-				desc: "",
-			},
-			{
-				name: "Sopa de frutos rojos con helado de queso de cabra (heladería Dellasera) y teja de almendras.",
+				name: "● Yogurt natural acompañado de mango, helado de crema de limón y AOVE de Alfaro (Heladería Dellasera).",
 				price: "8€",
 				desc: "",
 			},
 			{
-				name: "*Tabla de queso Cameros con membrillo casero.",
+				name: "● Tarta de queso al horno con frutos rojos.",
+				price: "7€",
+				desc: "",
+			},
+			{
+				name: "Goxua.",
+				price: "6,50€",
+				desc: "",
+			},
+			{
+				name: "Canutillo relleno de crema o nata con chocolate caliente.",
+				price: "7€",
+				desc: "",
+			},
+			{
+				name: "● Milhojas tres chocolates.",
+				price: "8€",
+				desc: "",
+			},
+			{
+				name: "● Sorbete de mojito con ron (Heladería Dellasera).",
+				price: "7€",
+				desc: "",
+			},
+			{
+				name: "Tartaleta de hojaldre con manzana, mermelada de albaricoque y crema inglesa.",
+				price: "7€",
+				desc: "",
+			},
+			{
+				name: "● Tabla de queso Cameros con nueces y membrillo.",
 				price: "8,50€",
+				desc: "",
+			},
+			{
+				name: "● Trufas de chocolate al vino blanco y vino tinto (obrador Kankel). 6uds",
+				price: "10€",
 				desc: "",
 			},
 		],
@@ -233,6 +233,11 @@ const getPortionPrices = (price: string) => {
 				>
 					"Sabores de siempre, como nunca. Una selección honesta basada en el
 					producto y la tradición desde 1821."
+				</p>
+				<p
+					class="text-primary/30 font-sans text-[10px] uppercase tracking-[0.3em] mt-8"
+				>
+					Carta actualizada · Mayo 2026
 				</p>
 			</div>
 		</section>
@@ -353,10 +358,10 @@ const getPortionPrices = (price: string) => {
 					<!-- Bottom CTA -->
 					<div class="mt-20 text-center reveal-on-scroll">
 						<p class="text-primary/50 font-sans text-xs uppercase tracking-[0.3em] mb-4">
-							Sin gluten marcado con *
+							● Sin gluten
 						</p>
 						<p class="text-primary/50 font-sans text-xs uppercase tracking-[0.3em] mb-12">
-							Todos los postres van acompañados de helado exc. goxua, sorbete y trufas
+							Todos los postres van acompañados de helado, salvo goxua, sorbete y trufas
 						</p>
 						<div
 							class="bg-primary/5 p-12 lg:p-20 relative overflow-hidden group"
