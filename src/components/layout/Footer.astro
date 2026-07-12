@@ -1,5 +1,7 @@
 ---
-import Logo from "../base/Logo.astro";
+import logoWordmark from "../../assets/logo/la-chata-logo-wordmark.png";
+
+const maskStyle = `aspect-ratio:${logoWordmark.width}/${logoWordmark.height};-webkit-mask-image:url(${logoWordmark.src});mask-image:url(${logoWordmark.src});-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-position:left center;mask-position:left center;`;
 ---
 
 <footer class="bg-primary-dark text-secondary py-24">
@@ -8,7 +10,13 @@ import Logo from "../base/Logo.astro";
 			<!-- Brand & Social -->
 			<div class="md:col-span-2 flex flex-col justify-between space-y-12">
 				<div>
-					<Logo class="h-10 w-auto mb-8" color="white" />
+					<div
+						class="h-10 mb-8 bg-secondary"
+						style={maskStyle}
+						role="img"
+						aria-label="La Chata 1821"
+					>
+					</div>
 					<p
 						class="max-w-xs text-secondary/60 font-sans text-sm leading-relaxed"
 					>
