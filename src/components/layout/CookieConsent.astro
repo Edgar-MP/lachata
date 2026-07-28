@@ -6,7 +6,8 @@
 	id="cookie-consent"
 	class="fixed bottom-8 left-8 right-8 md:left-auto md:max-w-md bg-white shadow-2xl border border-primary/10 p-8 z-50 transform translate-y-full opacity-0 transition-all duration-700 ease-out"
 >
-	<div class="space-y-6">
+	<!-- Layer 1: banner -->
+	<div id="cookie-banner-view" class="space-y-6">
 		<div class="flex items-center gap-4">
 			<div
 				class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary"
@@ -36,8 +37,12 @@
 		</div>
 
 		<p class="text-primary/60 font-sans text-sm leading-relaxed">
-			Utilizamos cookies propias y de terceros para mejorar su experiencia
-			y nuestros servicios mediante el análisis de su navegación.
+			Utilizamos cookies propias necesarias para el funcionamiento del
+			sitio y, si lo aceptas, cookies analíticas de terceros para medir
+			su uso. Consulta nuestra
+			<a href="/cookies" class="underline hover:text-primary"
+				>política de cookies</a
+			> para más información.
 		</p>
 
 		<div class="flex flex-col sm:flex-row gap-4 pt-2">
@@ -46,63 +51,202 @@
 				type="button"
 				class="flex-1 bg-primary text-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-primary-dark transition-all duration-300 shadow-sm"
 			>
-				Aceptar
+				Aceptar todas
 			</button>
 			<button
 				id="decline-cookies"
 				type="button"
 				class="flex-1 border border-primary/10 text-primary px-6 py-3 text-[10px] uppercase tracking-[0.2em] text-center hover:bg-primary/5 transition-all duration-300"
 			>
-				Rechazar
+				Rechazar todas
+			</button>
+		</div>
+		<button
+			id="open-preferences"
+			type="button"
+			class="w-full text-center text-primary/50 hover:text-primary font-sans text-[10px] uppercase tracking-[0.2em] underline transition-colors"
+		>
+			Configurar preferencias
+		</button>
+	</div>
+
+	<!-- Layer 2: granular preferences -->
+	<div id="cookie-preferences-view" class="space-y-6 hidden">
+		<h3 class="text-primary font-heading text-xl uppercase tracking-widest">
+			Preferencias de cookies
+		</h3>
+
+		<div class="space-y-4">
+			<div class="flex items-start justify-between gap-4">
+				<div>
+					<p class="text-primary font-sans text-xs font-bold uppercase tracking-widest">
+						Necesarias
+					</p>
+					<p class="text-primary/60 font-sans text-xs leading-relaxed mt-1">
+						Imprescindibles para que el sitio funcione. Siempre activas.
+					</p>
+				</div>
+				<input
+					type="checkbox"
+					checked
+					disabled
+					aria-label="Cookies necesarias (siempre activas)"
+					class="mt-1 accent-primary opacity-50"
+				/>
+			</div>
+
+			<div class="flex items-start justify-between gap-4">
+				<div>
+					<p class="text-primary font-sans text-xs font-bold uppercase tracking-widest">
+						Analíticas
+					</p>
+					<p class="text-primary/60 font-sans text-xs leading-relaxed mt-1">
+						Nos permiten medir el uso de la web (Google Analytics) para
+						mejorarla. Solo se activan si lo consientes.
+					</p>
+				</div>
+				<input
+					type="checkbox"
+					id="analytics-toggle"
+					aria-label="Cookies analíticas"
+					class="mt-1 accent-primary"
+				/>
+			</div>
+		</div>
+
+		<div class="flex flex-col sm:flex-row gap-4 pt-2">
+			<button
+				id="save-preferences"
+				type="button"
+				class="flex-1 bg-primary text-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-primary-dark transition-all duration-300 shadow-sm"
+			>
+				Guardar preferencias
+			</button>
+			<button
+				id="back-to-banner"
+				type="button"
+				class="border border-primary/10 text-primary px-6 py-3 text-[10px] uppercase tracking-[0.2em] text-center hover:bg-primary/5 transition-all duration-300"
+			>
+				Volver
 			</button>
 		</div>
 	</div>
 </div>
 
 <script>
+	const CONSENT_KEY = "cookie-consent";
+	// AEPD recomienda renovar el consentimiento periódicamente.
+	const CONSENT_MAX_AGE_MS = 365 * 24 * 60 * 60 * 1000;
+
+	function readConsent() {
+		const raw = localStorage.getItem(CONSENT_KEY);
+		if (!raw) return null;
+		try {
+			const parsed = JSON.parse(raw);
+			if (
+				typeof parsed.timestamp === "number" &&
+				Date.now() - parsed.timestamp > CONSENT_MAX_AGE_MS
+			) {
+				return null;
+			}
+			return parsed;
+		} catch {
+			return null;
+		}
+	}
+
+	function writeConsent(analytics: boolean) {
+		localStorage.setItem(
+			CONSENT_KEY,
+			JSON.stringify({
+				necessary: true,
+				analytics,
+				timestamp: Date.now(),
+			}),
+		);
+
+		if (analytics) {
+			const loadGA = (window as any).loadGoogleAnalytics;
+			if (typeof loadGA === "function") loadGA();
+		}
+	}
+
 	function initCookies() {
 		const consent = document.getElementById("cookie-consent");
+		const bannerView = document.getElementById("cookie-banner-view");
+		const preferencesView = document.getElementById(
+			"cookie-preferences-view",
+		);
 		const acceptBtn = document.getElementById("accept-cookies");
 		const declineBtn = document.getElementById("decline-cookies");
+		const openPreferencesBtn = document.getElementById("open-preferences");
+		const backBtn = document.getElementById("back-to-banner");
+		const saveBtn = document.getElementById("save-preferences");
+		const analyticsToggle = document.getElementById(
+			"analytics-toggle",
+		) as HTMLInputElement | null;
 
-		if (!consent || !acceptBtn || !declineBtn) return;
+		if (
+			!consent ||
+			!bannerView ||
+			!preferencesView ||
+			!acceptBtn ||
+			!declineBtn ||
+			!openPreferencesBtn ||
+			!backBtn ||
+			!saveBtn ||
+			!analyticsToggle
+		) {
+			return;
+		}
 
-		// Check if user already consented or declined
-		const hasPreference = localStorage.getItem("cookie-consent");
-
-		if (!hasPreference) {
-			// Show with a more elegant delay and animation
-			setTimeout(() => {
-				consent.classList.remove("translate-y-full", "opacity-0");
-				consent.classList.add("translate-y-0", "opacity-100");
-			}, 1500);
+		function showBanner() {
+			bannerView.classList.remove("hidden");
+			preferencesView.classList.add("hidden");
+			consent.classList.remove("translate-y-full", "opacity-0");
+			consent.classList.add("translate-y-0", "opacity-100");
 		}
 
 		function hideBanner() {
-			if (consent) {
-				consent.classList.add("translate-y-full", "opacity-0");
-				consent.classList.remove("translate-y-0", "opacity-100");
-			}
+			consent.classList.add("translate-y-full", "opacity-0");
+			consent.classList.remove("translate-y-0", "opacity-100");
+		}
+
+		function showPreferences() {
+			const current = readConsent();
+			analyticsToggle.checked = current?.analytics ?? false;
+			bannerView.classList.add("hidden");
+			preferencesView.classList.remove("hidden");
+			consent.classList.remove("translate-y-full", "opacity-0");
+			consent.classList.add("translate-y-0", "opacity-100");
+		}
+
+		if (!readConsent()) {
+			setTimeout(showBanner, 1500);
 		}
 
 		acceptBtn.addEventListener("click", () => {
-			localStorage.setItem("cookie-consent", "accepted");
-			const loadGA = (window as any).loadGoogleAnalytics;
-			if (typeof loadGA === "function") {
-				loadGA();
-			}
+			writeConsent(true);
 			hideBanner();
 		});
 
 		declineBtn.addEventListener("click", () => {
-			localStorage.setItem("cookie-consent", "declined");
+			writeConsent(false);
 			hideBanner();
 		});
+
+		openPreferencesBtn.addEventListener("click", showPreferences);
+		backBtn.addEventListener("click", showBanner);
+
+		saveBtn.addEventListener("click", () => {
+			writeConsent(analyticsToggle.checked);
+			hideBanner();
+		});
+
+		// Enlace "Preferencias de cookies" en el footer, para retirar/cambiar el consentimiento
+		document.addEventListener("open-cookie-preferences", showPreferences);
 	}
 
-	// Run on initial load
 	initCookies();
-
-	// Support for Astro View Transitions
 	document.addEventListener("astro:after-swap", initCookies);
 </script>

@@ -99,7 +99,27 @@ const maskStyle = `aspect-ratio:${logoWordmark.width}/${logoWordmark.height};-we
 				<a href="/privacidad" class="hover:text-white">Privacidad</a>
 				<a href="/aviso-legal" class="hover:text-white">Aviso Legal</a>
 				<a href="/cookies" class="hover:text-white">Cookies</a>
+				<button
+					id="footer-cookie-preferences"
+					type="button"
+					class="hover:text-white uppercase tracking-widest"
+				>
+					Preferencias de cookies
+				</button>
 			</div>
 		</div>
 	</div>
 </footer>
+
+<script>
+	function initFooterCookiePreferences() {
+		document
+			.getElementById("footer-cookie-preferences")
+			?.addEventListener("click", () => {
+				document.dispatchEvent(new CustomEvent("open-cookie-preferences"));
+			});
+	}
+
+	initFooterCookiePreferences();
+	document.addEventListener("astro:after-swap", initFooterCookiePreferences);
+</script>

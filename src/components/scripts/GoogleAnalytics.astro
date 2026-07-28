@@ -24,8 +24,13 @@ const { id } = Astro.props;
 		console.log("GA4 Loaded");
 	};
 
-	// Check on load if we already have consent
-	if (localStorage.getItem("cookie-consent") === "accepted") {
-		window.loadGoogleAnalytics();
+	// Check on load if we already have consent for analytics cookies
+	try {
+		const consent = JSON.parse(localStorage.getItem("cookie-consent"));
+		if (consent && consent.analytics) {
+			window.loadGoogleAnalytics();
+		}
+	} catch {
+		// no preference stored yet, or malformed value: do nothing
 	}
 </script>
