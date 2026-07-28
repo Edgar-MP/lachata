@@ -1,0 +1,21 @@
+# La Chata 1821
+
+> Restaurante de cocina tradicional riojana en el centro histórico de Logroño (España), desde 1821.
+
+La Chata 1821 sirve cocina riojana honesta con producto de cercanía: chuletillas de cordero a la brasa, carrilleras de cerdo ibérico al vino tinto, bacalao a la riojana, pulpo a la brasa y postres caseros. Abierto de miércoles a domingo en Calle Carnicerías 3, bajo, 26001 Logroño, La Rioja.
+
+## Páginas principales
+
+- [Inicio](https://restaurantelachata.es/): presentación del restaurante
+- [Carta](https://restaurantelachata.es/carta): menú completo con precios
+- [Carta de vinos](https://restaurantelachata.es/vinos): selección de vinos de La Rioja
+- [Reservas](https://restaurantelachata.es/reservas): reserva de mesa online
+- [Nuestra historia](https://restaurantelachata.es/nosotros): historia y filosofía del restaurante
+- [Contacto](https://restaurantelachata.es/contacto): dirección, teléfono y horarios
+- [Galería](https://restaurantelachata.es/galeria): fotografías del local y los platos
+
+## Datos de contacto
+
+- Teléfono: +34 667 28 67 66
+- Dirección: Calle Carnicerías, 3, bajo, 26001 Logroño, La Rioja, España
+- Horario: cerrado lunes y martes; miércoles y jueves 13:30–15:30; viernes a domingo 13:30–16:00; noches solo grupos de 10 o más personas con reserva
