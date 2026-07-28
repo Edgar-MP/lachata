@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://restaurantelachata.es/sitemap-index.xml
