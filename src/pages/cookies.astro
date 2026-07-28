@@ -128,8 +128,15 @@ import Footer from "../components/layout/Footer.astro";
 							uso de cookies no técnicas. Puede modificar o retirar
 							su consentimiento en cualquier momento pulsando en
 							"Preferencias de cookies", en el pie de página de
-							cualquier sección del sitio.
+							cualquier sección del sitio, o en el siguiente botón:
 						</p>
+						<button
+							id="cookies-page-open-preferences"
+							type="button"
+							class="bg-primary text-secondary px-8 py-3 text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-primary-dark transition-all duration-300"
+						>
+							Configurar mis cookies
+						</button>
 					</div>
 
 					<div class="reveal-on-scroll" style="transition-delay: 0.6s">
@@ -187,5 +194,11 @@ import Footer from "../components/layout/Footer.astro";
 		document
 			.querySelectorAll(".reveal-on-scroll")
 			.forEach((el) => observer.observe(el));
+
+		document
+			.getElementById("cookies-page-open-preferences")
+			?.addEventListener("click", () => {
+				document.dispatchEvent(new CustomEvent("open-cookie-preferences"));
+			});
 	</script>
 </Layout>
