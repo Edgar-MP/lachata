@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/layout/Header.astro";
 import Footer from "../components/layout/Footer.astro";
 import Button from "../components/base/Button.astro";
+import GlutenIcon from "../components/base/GlutenIcon.astro";
 import { Picture } from "astro:assets";
 import entrantesImg from "../assets/platos/pulpo.webp";
 import carnesImg from "../assets/platos/IMG_9166.webp";
@@ -12,34 +13,34 @@ import postresImg from "../assets/platos/IMG_8590.webp";
 const sections = [
 	{
 		title: "Entrantes",
-		note: "Ración / ½ ración · ● Contiene gluten",
+		note: "Ración / ½ ración",
 		image: entrantesImg,
 		items: [
 			{ name: "Jamón ibérico 75 % bellota", price: "25,50€ / 13,50€", desc: "" },
-			{ name: "● Ensalada de calamares en tempura, AOVE y alioli ligero", price: "21,50€ / 12,00€", desc: "" },
+			{ name: "Ensalada de calamares en tempura, AOVE y alioli ligero", gluten: true, price: "21,50€ / 12,00€", desc: "" },
 			{ name: "Puerros frescos asados a la brasa con sal de Añana y salsa romescu", price: "19,50€", desc: "" },
-			{ name: "● Rollitos crujientes de langostino y salsa de puerro", price: "16,00€", desc: "" },
-			{ name: "● Croquetas caseras de puerro confitado o picadillo (6 uds.)", price: "15,00€", desc: "" },
-			{ name: "● Lecherillas empanadas con alegría riojana", price: "21,00€ / 11,00€", desc: "" },
-			{ name: "● Saquitos de morcilla y manzana asada con salsa de piquillos", price: "19,50€", desc: "" },
+			{ name: "Rollitos crujientes de langostino y salsa de puerro", gluten: true, price: "16,00€", desc: "" },
+			{ name: "Croquetas caseras de puerro confitado o picadillo (6 uds.)", gluten: true, price: "15,00€", desc: "" },
+			{ name: "Lecherillas empanadas con alegría riojana", gluten: true, price: "21,00€ / 11,00€", desc: "" },
+			{ name: "Saquitos de morcilla y manzana asada con salsa de piquillos", gluten: true, price: "19,50€", desc: "" },
 			{ name: "Vieiras a la plancha sobre papel de arroz frito y con salsa de mantequilla y lima", price: "24,50€", desc: "" },
 			{ name: "Pulpo gallego a la brasa sobre parmentier y pimentón de la Vera", price: "31,50€ / 17,50€", desc: "" },
 		],
 	},
 	{
 		title: "Carnes",
-		note: "Ración · ● Contiene gluten",
+		note: "Ración",
 		image: carnesImg,
 		items: [
 			{ name: "Carrilleras ibéricas al vino tinto con boletus y foie fresco", price: "25,50€", desc: "" },
 			{ name: "Solomillo de ternera con pimientos rojos asados y patatas fritas", price: "27,00€", desc: "" },
 			{ name: "Chuletillas de cordero a la brasa con patatas baby asadas y pimientos del país", price: "26,50€", desc: "" },
-			{ name: "● Albóndigas de chuletón con salsa española y patatas fritas", price: "23,50€", desc: "" },
+			{ name: "Albóndigas de chuletón con salsa española y patatas fritas", gluten: true, price: "23,50€", desc: "" },
 		],
 	},
 	{
 		title: "Pescados",
-		note: "Ración · ● Contiene gluten",
+		note: "Ración",
 		image: pescadosImg,
 		items: [
 			{ name: "Atún Balfegó con cebolla caramelizada y tomate cassé macerado en AOVE", price: "24,00€", desc: "" },
@@ -51,16 +52,16 @@ const sections = [
 	},
 	{
 		title: "Postres",
-		note: "● Contiene gluten",
+		note: "",
 		image: postresImg,
 		items: [
-			{ name: "● Sopa de frutos rojos con helado de queso de cabra y teja de almendra", price: "8,50€", desc: "" },
+			{ name: "Sopa de frutos rojos con helado de queso de cabra y teja de almendra", gluten: true, price: "8,50€", desc: "" },
 			{ name: "Tarta de queso al horno con frutos rojos", price: "7,00€", desc: "" },
-			{ name: "● Goxua", price: "6,50€", desc: "" },
-			{ name: "● Canutillo relleno de nata o crema con chocolate caliente", price: "7,00€", desc: "" },
+			{ name: "Goxua", gluten: true, price: "6,50€", desc: "" },
+			{ name: "Canutillo relleno de nata o crema con chocolate caliente", gluten: true, price: "7,00€", desc: "" },
 			{ name: "Milhojas de tres chocolates", price: "8,00€", desc: "" },
 			{ name: "Sorbete de mojito con ron (obrador Gratte)", price: "7,00€", desc: "" },
-			{ name: "● Tartaleta de hojaldre con manzana, mermelada de albaricoque y crema inglesa", price: "7,00€", desc: "" },
+			{ name: "Tartaleta de hojaldre con manzana, mermelada de albaricoque y crema inglesa", gluten: true, price: "7,00€", desc: "" },
 			{ name: "Tabla de queso con nueces y membrillo", price: "8,50€", desc: "" },
 			{ name: "Trufas de chocolate al vino blanco y vino tinto (obrador Kankel). 6 uds.", price: "10,00€", desc: "" },
 		],
@@ -135,6 +136,11 @@ const getPortionPrices = (price: string) => {
 												</h2>
 												<p class="text-primary/40 font-sans text-xs uppercase tracking-widest">
 													{section.note}
+													{section.items.some((item) => item.gluten) && (
+														<span class="ml-3 inline-flex items-center gap-1.5 normal-case tracking-normal">
+															<GlutenIcon /> Contiene gluten
+														</span>
+													)}
 												</p>
 											</div>
 
@@ -150,6 +156,7 @@ const getPortionPrices = (price: string) => {
 														<div class="flex justify-between items-end mb-4 group-hover:translate-x-2 transition-transform duration-500">
 															<h3 class="text-primary font-heading text-2xl">
 																{item.name}
+																{item.gluten && <GlutenIcon class="ml-2 text-primary/60" />}
 															</h3>
 															<div class="grow mx-4 h-px border-b border-dotted border-primary/10" />
 															{
@@ -231,7 +238,7 @@ const getPortionPrices = (price: string) => {
 					<!-- Bottom CTA -->
 					<div class="mt-20 text-center reveal-on-scroll">
 						<p class="text-primary/50 font-sans text-xs uppercase tracking-[0.3em] mb-4">
-							● Contiene gluten
+							<GlutenIcon class="mr-2" /> Contiene gluten
 						</p>
 						<p class="text-primary/50 font-sans text-xs uppercase tracking-[0.3em] mb-12">
 							Todos los postres van acompañados de helado, salvo goxua y sorbete

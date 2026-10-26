@@ -1,0 +1,22 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="currentColor"
+  role="img"
+  aria-label="Contiene gluten"
+  class:list={["inline-block w-4 h-4 align-[-0.15em]", className]}
+>
+  <title>Contiene gluten</title>
+  <path d="M12 22V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none" />
+  <path d="M12 2c1.5 1.5 1.5 3.5 0 5-1.5-1.5-1.5-3.5 0-5z" />
+  <path d="M12 9.5c-2.5.2-4-1-4.5-3.5 2.5-.2 4 1 4.5 3.5zM12 9.5c2.5.2 4-1 4.5-3.5-2.5-.2-4 1-4.5 3.5z" />
+  <path d="M12 15c-2.5.2-4-1-4.5-3.5 2.5-.2 4 1 4.5 3.5zM12 15c2.5.2 4-1 4.5-3.5-2.5-.2-4 1-4.5 3.5z" />
+</svg>
