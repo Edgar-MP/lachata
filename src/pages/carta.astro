@@ -4,203 +4,73 @@ import Header from "../components/layout/Header.astro";
 import Footer from "../components/layout/Footer.astro";
 import Button from "../components/base/Button.astro";
 import { Picture } from "astro:assets";
-import entrantesFriosImg from "../assets/platos/pimientos.webp";
-import entrantesCalientesImg from "../assets/platos/pulpo.webp";
-import carnesImg from "../assets/platos/carrilleras.webp";
+import entrantesImg from "../assets/platos/pulpo.webp";
+import carnesImg from "../assets/platos/IMG_9166.webp";
 import pescadosImg from "../assets/platos/IMG_7148.webp";
-import postresImg from "../assets/platos/canutillo-hojaldre.webp";
+import postresImg from "../assets/platos/IMG_8590.webp";
 
 const sections = [
 	{
-		title: "Entrantes fríos",
-		note: "Ración / ½ ración · ● Sin gluten",
-		image: entrantesFriosImg,
+		title: "Entrantes",
+		note: "Ración / ½ ración · ● Contiene gluten",
+		image: entrantesImg,
 		items: [
-			{
-				name: "● Paleta ibérica.",
-				price: "21,50€ / 12€",
-				desc: "",
-			},
-			{
-				name: "● Ensalada de tomate con ventresca, piparras y cebolleta dulce.",
-				price: "19,50€ / 10€",
-				desc: "",
-			},
-			{
-				name: "Carpaccio de bacalao con tomate natural rallado, picada de oliva negra, pistachos y AOVE.",
-				price: "21,50€ / 11€",
-				desc: "",
-			},
-		],
-	},
-	{
-		title: "Entrantes calientes",
-		note: "Ración / ½ ración · ● Sin gluten",
-		image: entrantesCalientesImg,
-		items: [
-			{
-				name: "● Pulpo a la brasa sobre crema de patata y pimentón de la Vera.",
-				price: "22€",
-				desc: "",
-			},
-			{
-				name: "Croquetas caseras de puerro o picadillo. 6uds",
-				price: "14€",
-				desc: "",
-			},
-			{
-				name: "● Arroz meloso de sepia y langostinos.",
-				price: "21€ / 11€",
-				desc: "",
-			},
-			{
-				name: "Rollitos crujientes de langostino y salsa de puerro. 6uds",
-				price: "16€",
-				desc: "",
-			},
-			{
-				name: "● Vieiras a la brasa sobre parmentier de boletus. 6uds",
-				price: "22,50€ / 11€",
-				desc: "",
-			},
-			{
-				name: "Lecherillas de cordero empanadas con alegría riojana.",
-				price: "21€ / 11€",
-				desc: "",
-			},
-			{
-				name: "Saquitos de morcilla y manzana asada sobre crema de piquillos. 6uds",
-				price: "18€",
-				desc: "",
-			},
-			{
-				name: "Callos y morros de ternera a la plancha con salsa Vizcaína.",
-				price: "19,50€ / 10,50€",
-				desc: "",
-			},
+			{ name: "Jamón ibérico 75 % bellota", price: "25,50€ / 13,50€", desc: "" },
+			{ name: "● Ensalada de calamares en tempura, AOVE y alioli ligero", price: "21,50€ / 12,00€", desc: "" },
+			{ name: "Puerros frescos asados a la brasa con sal de Añana y salsa romescu", price: "19,50€", desc: "" },
+			{ name: "● Rollitos crujientes de langostino y salsa de puerro", price: "16,00€", desc: "" },
+			{ name: "● Croquetas caseras de puerro confitado o picadillo (6 uds.)", price: "15,00€", desc: "" },
+			{ name: "● Lecherillas empanadas con alegría riojana", price: "21,00€ / 11,00€", desc: "" },
+			{ name: "● Saquitos de morcilla y manzana asada con salsa de piquillos", price: "19,50€", desc: "" },
+			{ name: "Vieiras a la plancha sobre papel de arroz frito y con salsa de mantequilla y lima", price: "24,50€", desc: "" },
+			{ name: "Pulpo gallego a la brasa sobre parmentier y pimentón de la Vera", price: "31,50€ / 17,50€", desc: "" },
 		],
 	},
 	{
 		title: "Carnes",
-		note: "● Sin gluten",
+		note: "Ración · ● Contiene gluten",
 		image: carnesImg,
 		items: [
-			{
-				name: "● Carrilleras de cerdo ibérico al vino tinto con crema de patata y chips crujientes.",
-				price: "19,50€",
-				desc: "",
-			},
-			{
-				name: "● Chuletillas de cordero a la brasa con patatas baby asadas, pimientos del país y del piquillo.",
-				price: "21€",
-				desc: "",
-			},
-			{
-				name: "● Solomillo de ternera a la brasa con salsa oporto, foie y chalotas asadas.",
-				price: "25€",
-				desc: "",
-			},
-			{
-				name: "Albóndigas de chuletón con salsa española y patatas fritas.",
-				price: "22,50€",
-				desc: "",
-			},
+			{ name: "Carrilleras ibéricas al vino tinto con boletus y foie fresco", price: "25,50€", desc: "" },
+			{ name: "Solomillo de ternera con pimientos rojos asados y patatas fritas", price: "27,00€", desc: "" },
+			{ name: "Chuletillas de cordero a la brasa con patatas baby asadas y pimientos del país", price: "26,50€", desc: "" },
+			{ name: "● Albóndigas de chuletón con salsa española y patatas fritas", price: "23,50€", desc: "" },
 		],
 	},
 	{
 		title: "Pescados",
-		note: "● Sin gluten",
+		note: "Ración · ● Contiene gluten",
 		image: pescadosImg,
 		items: [
-			{
-				name: "● Pescado fresco del día.",
-				price: "S/M",
-				desc: "",
-			},
-			{
-				name: "Pimientos rellenos de changurro sobre salsa de ajo negro.",
-				price: "19€",
-				desc: "",
-			},
-			{
-				name: "● Bacalao a la riojana.",
-				price: "19,50€",
-				desc: "",
-			},
-			{
-				name: "Cocochas de bacalao en salsa verde.",
-				price: "23,50€",
-				desc: "",
-			},
-			{
-				name: "Atún Balfegó a la brasa con verduras salteadas en soja.",
-				price: "23,50€",
-				desc: "",
-			},
-			{
-				name: "Mollete de pan.",
-				price: "1,10€",
-				desc: "",
-			},
+			{ name: "Atún Balfegó con cebolla caramelizada y tomate cassé macerado en AOVE", price: "24,00€", desc: "" },
+			{ name: "Calamar a la brasa con patata panadera", price: "23,50€", desc: "" },
+			{ name: "Pescado fresco del día (consultar alérgenos)", price: "S/M", desc: "" },
+			{ name: "Bacalao al horno con crema de espárragos trigueros, huevas de trucha y crujiente de su piel", price: "24,50€", desc: "" },
+			{ name: "Mollete de pan", price: "1,10€", desc: "" },
 		],
 	},
 	{
 		title: "Postres",
-		note: "Todos los postres son caseros · ● Sin gluten",
+		note: "● Contiene gluten",
 		image: postresImg,
 		items: [
-			{
-				name: "● Yogurt natural acompañado de mango, helado de crema de limón y AOVE de Alfaro (Heladería Dellasera).",
-				price: "8€",
-				desc: "",
-			},
-			{
-				name: "● Tarta de queso al horno con frutos rojos.",
-				price: "7€",
-				desc: "",
-			},
-			{
-				name: "Goxua.",
-				price: "6,50€",
-				desc: "",
-			},
-			{
-				name: "Canutillo relleno de crema o nata con chocolate caliente.",
-				price: "7€",
-				desc: "",
-			},
-			{
-				name: "● Milhojas tres chocolates.",
-				price: "8€",
-				desc: "",
-			},
-			{
-				name: "● Sorbete de mojito con ron (Heladería Dellasera).",
-				price: "7€",
-				desc: "",
-			},
-			{
-				name: "Tartaleta de hojaldre con manzana, mermelada de albaricoque y crema inglesa.",
-				price: "7€",
-				desc: "",
-			},
-			{
-				name: "● Tabla de queso Cameros con nueces y membrillo.",
-				price: "8,50€",
-				desc: "",
-			},
-			{
-				name: "● Trufas de chocolate al vino blanco y vino tinto (obrador Kankel). 6uds",
-				price: "10€",
-				desc: "",
-			},
+			{ name: "● Sopa de frutos rojos con helado de queso de cabra y teja de almendra", price: "8,50€", desc: "" },
+			{ name: "Tarta de queso al horno con frutos rojos", price: "7,00€", desc: "" },
+			{ name: "● Goxua", price: "6,50€", desc: "" },
+			{ name: "● Canutillo relleno de nata o crema con chocolate caliente", price: "7,00€", desc: "" },
+			{ name: "Milhojas de tres chocolates", price: "8,00€", desc: "" },
+			{ name: "Sorbete de mojito con ron (obrador Gratte)", price: "7,00€", desc: "" },
+			{ name: "● Tartaleta de hojaldre con manzana, mermelada de albaricoque y crema inglesa", price: "7,00€", desc: "" },
+			{ name: "Tabla de queso con nueces y membrillo", price: "8,50€", desc: "" },
+			{ name: "Trufas de chocolate al vino blanco y vino tinto (obrador Kankel). 6 uds.", price: "10,00€", desc: "" },
 		],
 	},
 ];
 
 const getPortionPrices = (price: string) => {
 	const prices = price.split("/").map((value) => value.trim());
-	if (prices.length !== 2) return null;
+	if (prices.length !== 2 || !prices.every((value) => /\d/.test(value)))
+		return null;
 
 	return { full: prices[0], half: prices[1] };
 };
@@ -208,7 +78,7 @@ const getPortionPrices = (price: string) => {
 
 <Layout
 	title="Carta y Menú | Restaurante La Chata 1821, Logroño"
-	description="Descubre la carta de La Chata 1821: cocina tradicional riojana con chuletillas al sarmiento, pochas y platos de siempre elaborados con producto de cercanía."
+	description="Descubre la carta de La Chata 1821: cocina tradicional riojana con chuletillas de cordero a la brasa, carrilleras, bacalao, pulpo gallego y postres caseros, elaborados con producto de cercanía."
 >
 	<Header />
 
@@ -240,7 +110,7 @@ const getPortionPrices = (price: string) => {
 				<p
 					class="text-primary/30 font-sans text-[10px] uppercase tracking-[0.3em] mt-8"
 				>
-					Carta actualizada · Mayo 2026
+					Carta actualizada · Octubre 2026
 				</p>
 			</div>
 		</section>
@@ -361,10 +231,10 @@ const getPortionPrices = (price: string) => {
 					<!-- Bottom CTA -->
 					<div class="mt-20 text-center reveal-on-scroll">
 						<p class="text-primary/50 font-sans text-xs uppercase tracking-[0.3em] mb-4">
-							● Sin gluten
+							● Contiene gluten
 						</p>
 						<p class="text-primary/50 font-sans text-xs uppercase tracking-[0.3em] mb-12">
-							Todos los postres van acompañados de helado, salvo goxua, sorbete y trufas
+							Todos los postres van acompañados de helado, salvo goxua y sorbete
 						</p>
 						<div
 							class="bg-primary/5 p-12 lg:p-20 relative overflow-hidden group"
